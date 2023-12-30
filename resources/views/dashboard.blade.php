@@ -247,7 +247,7 @@
 
             </div>
     </div>-->
-  <div class="col-md-9">
+  <div class="col-md-6">
     <div class="card card-default">
         <div class="card-header">
         <h3 class="card-title">Bar Chart</h3>
@@ -268,6 +268,7 @@
 
         </div>
   </div>
+
   <div class="col-md-3 col-sm-6 col-12">
     <div class="info-box bg-gradient-Orange">
         <span class="info-box-icon"><img src="{{asset('icons/barecode.png')}}" alt=""></span>
@@ -285,29 +286,31 @@
         </div>
         <!-- /.info-box-content -->
       </div>
-    <div class="info-box bg-gradient-Danger">
-      <span class="info-box-icon"><img src="{{asset('icons/network.png')}}" alt=""></span>
 
-      <div class="info-box-content">
-        <span class="info-box-text">Réseau</span>
-        <span class="info-box-number">41,410</span>
-
-        <div class="progress">
-          <div class="progress-bar" style="width: 70%"></div>
-        </div>
-        <span class="progress-description">
-          70% Increase in 30 Days
-        </span>
-      </div>
-      <!-- /.info-box-content -->
-    </div>
     <!-- /.info-box -->
 
   </div>
+  <div class="col-md-3 col-sm-6 col-12">
+    <div class="info-box bg-gradient-Danger">
+        <span class="info-box-icon"><img src="{{asset('icons/network.png')}}" alt=""></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Réseau</span>
+          <span class="info-box-number">41,410</span>
+
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+          <span class="progress-description">
+            70% Increase in 30 Days
+          </span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+  </div>
 
 </div>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 
 <script src="/myjs.js"></script>
