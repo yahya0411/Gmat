@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Eurostile';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Eurostile'), url('eurostile.woff') format('woff');
+}
+
+* {
+
+    font-family: Eurostile,Arial,sans-serif;
+    font-size: 1em;
+
+}
+.elevation-3 {
+
+  box-shadow: none !important;
+}

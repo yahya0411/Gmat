@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{asset('/plugins/jquery-ui/jquery-ui.min.css')}}">
     <!-- Font Awesome -->
     <link rel="icon" type="image/png" href="{{asset('icons/logo.png')}}" />
-  <title>GMat</title>
+  <title>G-Mat</title>
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="{{asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
         <link rel="stylesheet" href="{{asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
         <link rel="stylesheet" href="{{asset("plugins/chart.js/Chart.css")}}">
+        <link rel="stylesheet" href="{{asset("/MyStyle/style.css")}}">
 
         @yield('custum_style')
 
@@ -146,7 +147,7 @@
 
             <!-- Main Footer -->
             <footer class="main-footer">
-                <strong>Copyright &copy; 2023 <a href="#">Algerie Poste</a>.</strong>
+                <strong>Copyright &copy; 2024 <a href="https://www.poste.dz">Algerie Poste</a>.</strong>
                 All rights reserved.
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 1.0.0
