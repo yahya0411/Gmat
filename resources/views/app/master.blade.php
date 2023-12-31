@@ -3,18 +3,10 @@
     <link rel="icon" type="image/png" href="{{asset('icons/logo.png')}}" />
   <title>G-Mat</title>
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{asset('/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="{{asset('/plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('/dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
@@ -22,7 +14,6 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{asset('/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
-    <link rel="stylesheet" href="{{asset('/plugins/summernote/summernote-bs4.min.css')}}">
         <!-- data table -->
         <link rel="stylesheet" href="{{asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
         <link rel="stylesheet" href="{{asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
@@ -150,7 +141,7 @@
                 <strong>Copyright &copy; 2024 <a href="https://www.poste.dz">Algerie Poste</a>.</strong>
                 All rights reserved.
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 1.0.0
+                    <b>G-Mat</b> V1.0.0
                 </div>
             </footer>
         </div>
@@ -201,7 +192,6 @@
         <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
         <!-- AdminLTE App -->
         <script src="{{asset('dist/js/adminlte.js')}}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
         <!-- AdminLTE for demo purposes -->
         {{--

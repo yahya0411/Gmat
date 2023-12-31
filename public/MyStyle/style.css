@@ -15,3 +15,16 @@
 
   box-shadow: none !important;
 }
+/*
+.layout-navbar-fixed .wrapper .sidebar-dark-lightblue .brand-link:not([class*=navbar]) {
+    background: -webkit-linear-gradient(0,#003c71,#005cae,#003c71);
+}
+[class*=sidebar-dark-] {
+
+    background: rgb(0,60,113);
+    background: linear-gradient(90deg, rgba(0,60,113,1) 59%, rgba(0,92,174,1) 100%);
+}
+[class*=sidebar-dark] .brand-link {
+    border-bottom: 1px solid #FFD111    ;
+}
+*/
