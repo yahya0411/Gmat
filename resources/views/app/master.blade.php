@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<head>
 <link rel="stylesheet" href="{{asset('/plugins/jquery-ui/jquery-ui.min.css')}}">
     <!-- Font Awesome -->
     <link rel="icon" type="image/png" href="{{asset('icons/logo.png')}}" />
