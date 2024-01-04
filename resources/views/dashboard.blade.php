@@ -7,7 +7,7 @@
   </div>
     <div class="row">
         <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-Lightblue">
+            <div class="info-box bg-gradient-primary">
                 <span class="info-box-icon"><a style="cursor: pointer" data-toggle="modal" data-target="#modal-xl"><img
                             src="{{ asset('icons/pc3.png') }}" alt=""></a></span>
 
@@ -28,7 +28,7 @@
         </div>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-Olive">
+            <div class="info-box bg-success">
                 <span class="info-box-icon"><img src="{{ asset('icons/tpe.png') }}" alt=""></span>
 
                 <div class="info-box-content">
@@ -47,7 +47,7 @@
             <!-- /.info-box -->
         </div>
         <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-Warning">
+            <div class="info-box bg-gradient-warning">
                 <span class="info-box-icon"><img src="{{ asset('icons/consommable.png') }}" alt=""></span>
 
                 <div class="info-box-content">
@@ -67,7 +67,7 @@
         </div>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-Danger">
+            <div class="info-box bg-gradient-danger">
                 <span class="info-box-icon"><img src="{{ asset('icons/arrivage.png') }}" alt=""></span>
 
                 <div class="info-box-content">

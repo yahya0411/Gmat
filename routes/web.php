@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('load');
+    return view('bp.index');
+});
+Route::get('/d', function () {
+    return view('dashboard');
 });

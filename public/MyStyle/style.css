@@ -28,3 +28,7 @@
     border-bottom: 1px solid #FFD111    ;
 }
 */
+.card-poste {
+ background-image: -webkit-linear-gradient(0,#003c71,#005cae,#003c71);
+ color: #f4cc3a !important;
+}

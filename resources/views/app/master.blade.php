@@ -5,6 +5,8 @@
     <link rel="icon" type="image/png" href="{{asset('icons/logo.png')}}" />
   <title>G-Mat</title>
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/dist/css/ionicons.min.css')}}">
+
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
@@ -22,6 +24,7 @@
         <link rel="stylesheet" href="{{asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
         <link rel="stylesheet" href="{{asset("plugins/chart.js/Chart.css")}}">
         <link rel="stylesheet" href="{{asset("/MyStyle/style.css")}}">
+
 
         @yield('custum_style')
 
@@ -114,7 +117,7 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0">Dashboard</h1>
+                                <h1 class="m-0">@yield('nom_page')</h1>
                             </div><!-- /.col -->
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
@@ -177,7 +180,7 @@
         <!-- Summernote -->
         <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 
-        <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('plugins/datatables/jquery.dataTables.js')}}"></script>
         <script src="{{asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
         <script src="{{asset('plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
         <script src="{{asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
