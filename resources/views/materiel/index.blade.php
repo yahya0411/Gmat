@@ -1,6 +1,8 @@
 @extends('app.master')
 @section('content')
-@section('nom_page','Bureaux de poste')
+@section('nom_page')
+<i class="fas fa-laptop"></i> Equipement Informatique
+@endsection
 @section('custum_style')
 <link rel="stylesheet" href="{{asset("/MyStyle/style.css")}}">
 <style>
@@ -19,7 +21,7 @@ text-transform: none
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header card-poste">
-                    <h4 class="modal-title">Ajouter bureau de poste</h4>
+                    <h4 class="modal-title">Ajouter un equipement</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -119,66 +121,50 @@ text-transform: none
     <div class="col-md-12">
         <div class="card">
             <div class="card-header card-poste">
-              <a href="#"  data-toggle="modal" data-target="#modal-xl" class="float-right" style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter un bureau</a>
+              <a href="#"  data-toggle="modal" data-target="#modal-xl" class="float-right" style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter un equipement</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Denomination</th>
-                  <th>Classe</th>
-                  <th>Code Postale</th>
-                  <th>Code Comptable</th>
-                  <th>CCP</th>
-                  <th>ID Marchant</th>
-                  <th>ID Terminal</th>
+                  <th>Désignation</th>
+                  <th>Code d'inventiare</th>
+                  <th>N° Série</th>
+                  <th>Marque</th>
+                  <th>Modele</th>
+                  <th>Etat</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Tlemcen RP</td>
-                  <td>RP</td>
-                  <td>13000</td>
-                  <td>13100</td>
-                  <td>312046</td>
-                  <td>13100</td>
-                  <td>312046</td>
+                  <td>Imprimante</td>
+                  <td>Non</td>
+                  <td>CM5W000159</td>
+                  <td>PANTUM</td>
+                  <td>BP 5100</td>
+                  <td class="text-center"><h6>Bon </h6></td>
                   <td style="text-align:center">
                     <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
                     <a class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
                     <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
-                <tr>
-                    <td>Maghnia HC</td>
-                    <td>HC</td>
-                    <td>13000</td>
-                    <td>13300</td>
-                    <td>311759</td>
-                    <td>13100</td>
-                    <td>312046</td>
-                    <td style="text-align:center">
-                        <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                        <a class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
-                        <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                      </td>
-                  </tr>
-                  <tr>
-                    <td>Remchi</td>
-                    <td>R1</td>
-                    <td>13000</td>
-                    <td>13100</td>
-                    <td>313047</td>
-                    <td>13100</td>
-                    <td>312046</td>
-                    <td style="text-align:center">
-                        <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                        <a class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
-                        <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                      </td>
-                  </tr>
+                    <tr>
+                        <td>Imprimante</td>
+                        <td>Non</td>
+                        <td>CM5W000159</td>
+                        <td>PANTUM</td>
+                        <td>BP 5100</td>
+                        <td class="text-center"><h6>Bon </h6></td>
+                        <td style="text-align:center">
+                          <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                          <a class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
+                          <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                      </tr>
+
                 </tbody>
               </table>
             </div>
@@ -192,8 +178,8 @@ text-transform: none
 $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    });
+      "buttons": ["excel", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 </script>
 

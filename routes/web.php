@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BpController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('bp.index');
-});
-Route::get('/d', function () {
-    return view('dashboard');
-});
+Route::get('/materiel', function () {
+    return view('materiel.index');
+})->name('materiel');
+
+Route::resource('bureau',BpController::class);
+Route::resource('dashboard',DashboardController::class);

@@ -4,7 +4,34 @@
     font-weight: normal;
     src: local('Eurostile'), url('eurostile.woff') format('woff');
 }
-
+::selection {
+    color: white;
+    background: #003C71;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-button {
+    background: #222;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000
+  }
+  ::-webkit-scrollbar-track-piece {
+    background: #000
+  }
+  ::-webkit-scrollbar-corner {
+    background: #999
+  }
+  ::-webkit-resizer{
+    background: #111
+  }
 * {
 
     font-family: Eurostile,Arial,sans-serif;
@@ -15,20 +42,24 @@
 
   box-shadow: none !important;
 }
-/*
+
 .layout-navbar-fixed .wrapper .sidebar-dark-lightblue .brand-link:not([class*=navbar]) {
-    background: -webkit-linear-gradient(0,#003c71,#005cae,#003c71);
+    background: #001f3f;
 }
 [class*=sidebar-dark-] {
 
-    background: rgb(0,60,113);
-    background: linear-gradient(90deg, rgba(0,60,113,1) 59%, rgba(0,92,174,1) 100%);
+    background: #001f3f;
 }
 [class*=sidebar-dark] .brand-link {
-    border-bottom: 1px solid #FFD111    ;
+    border-bottom: 1px solid #0a0a0a    ;
 }
-*/
+
 .card-poste {
  background-image: -webkit-linear-gradient(0,#003c71,#005cae,#003c71);
  color: #f4cc3a !important;
+}
+
+.mat {
+ background-image: -webkit-linear-gradient(0,#003c71,#005cae,#003c71);
+ color: white;
 }

@@ -23,6 +23,8 @@
         <link rel="stylesheet" href="{{asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
         <link rel="stylesheet" href="{{asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
         <link rel="stylesheet" href="{{asset("plugins/chart.js/Chart.css")}}">
+        <link rel="stylesheet" href="{{asset("dist/css/adminlte.min.css")}}">
+
         <link rel="stylesheet" href="{{asset("/MyStyle/style.css")}}">
 
 
@@ -30,6 +32,11 @@
 
     </head>
     <body class="sidebar-mini layout-navbar-fixed layout-footer-fixed layout-fixed">
+         <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <h1 style="color: #003C71">G-Mat</h1>
+    <img class="animation__wobble" src="{{asset('icons/logo-round.png')}}" alt="Gmat" height="80" width="80">
+  </div>
         <div class="wrapper">
             <div class="flex-column justify-content-center align-items-center" style="height: 0px;">
                 <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60" style="display: none;">
@@ -70,11 +77,11 @@
             <!-- /.navbar -->
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar sidebar-primary elevation-4 sidebar-dark-lightblue">
+            <aside class="main-sidebar sidebar-primary elevation-4 sidebar-dark-Olive">
                 <!-- Brand Logo -->
                 <a href="index3.html" class="brand-link">
                     <img src="{{asset("icons/logo-round.png")}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">GMat</span>
+                    <span class="brand-text font-weight">G-Mat</span>
                 </a>
 
                 <!-- Sidebar -->
@@ -94,15 +101,151 @@
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
-                                 <li class="nav-header">Etablisements</li>
                                  <li class="nav-item">
-                                    <a href="pages/calendar.html" class="nav-link">
-                                      <i class="nav-icon fas fa-calendar-alt"></i>
+                                    <a href="{{route('dashboard.index')}}" class="nav-link">
+                                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                                      <p>
+                                        Tableau de bord
+                                      </p>
+                                    </a>
+                                  </li>
+                                 <li class="nav-header">Gestion de Materiel</li>
+                                 <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                      <i class="nav-icon fas fa-boxes"></i>
+                                      <p>
+                                        Magasin
+                                      </p>
+                                    </a>
+                                  </li>
+                                 <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                      <i class="nav-icon fas fa-box"></i>
+                                      <p>
+                                        Arrivage
+                                      </p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="{{route('materiel')}}" class="nav-link">
+                                      <i class="nav-icon fas fa-laptop"></i>
+                                      <p>
+                                        Equipement Informatique
+                                      </p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                      <i class="nav-icon fas fa-credit-card"></i>
+                                      <p>
+                                       TPE
+                                      </p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                      <i class="nav-icon fas fa-recycle"></i>
+                                      <p>
+                                       Consommable
+                                      </p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                      <i class="nav-icon fas fa-file-export"></i>
+                                      <p>
+                                        Mouvement
+                                        <i class="right fas fa-angle-left"></i>
+                                      </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                      <li class="nav-item">
+                                        <a href="./index.html" class="nav-link">
+                                          <i class="nav-icon fas fa-history"></i>
+                                          <p>Historique</p>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a href="./index2.html" class="nav-link">
+                                          <i class="nav-icon fas fa-file-pdf"></i>
+                                          <p>Bon de sortie</p>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a href="./index2.html" class="nav-link">
+                                          <i class="nav-icon fas fa-file-pdf"></i>
+                                          <p>Decharge</p>
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                 <li class="nav-header">Gestion d'etablisements</li>
+                                 <li class="nav-item">
+                                    <a href="{{route('bureau.index')}}" class="nav-link">
+                                      <i class="nav-icon fas fa-building"></i>
                                       <p>
                                         Bureau de poste
                                       </p>
                                     </a>
                                   </li>
+                                  <li class="nav-item">
+                                    <a href="{{route('bureau.index')}}" class="nav-link">
+                                      <i class="nav-icon fas fa-city"></i>
+                                      <p>
+                                        Sous-direction
+                                      </p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                      <i class="nav-icon fas fa-users"></i>
+                                      <p>
+                                        Client externe
+                                        <i class="right fas fa-angle-left"></i>
+                                      </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                      <li class="nav-item">
+                                        <a href="./index.html" class="nav-link">
+                                          <i class="far fa-circle nav-icon"></i>
+                                          <p>Commercant</p>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a href="./index2.html" class="nav-link">
+                                          <i class="far fa-circle nav-icon"></i>
+                                          <p>Algerie Telecom</p>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a href="./index3.html" class="nav-link">
+                                          <i class="far fa-circle nav-icon"></i>
+                                          <p>Mobilis</p>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a href="./index3.html" class="nav-link">
+                                          <i class="far fa-circle nav-icon"></i>
+                                          <p>EMS</p>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a href="./index3.html" class="nav-link">
+                                          <i class="far fa-circle nav-icon"></i>
+                                          <p>SNTF</p>
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li class="nav-header">Configuration</li>
+                                  <li class="nav-item">
+                                     <a href="" class="nav-link">
+                                       <i class="nav-icon fas fa-cogs"></i>
+                                       <p>
+                                         Configuration
+                                       </p>
+                                     </a>
+                                   </li>
                             @yield('menu')
                         </ul>
                     </nav>
@@ -143,10 +286,10 @@
 
             <!-- Main Footer -->
             <footer class="main-footer">
-                <strong>Copyright &copy; 2024 <a href="https://www.poste.dz">Algerie Poste</a>.</strong>
-                All rights reserved.
+                 <strong>Tous droits réservés Copyright &copy; @php echo date("Y");@endphp <a href="https://www.poste.dz">Algerie Poste</a>.</strong>
+
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>G-Mat</b> V1.0.0
+                    <b style="color: #003C71">G-Mat</b>
                 </div>
             </footer>
         </div>
