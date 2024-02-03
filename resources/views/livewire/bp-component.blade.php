@@ -1,20 +1,4 @@
-@extends('app.master')
-@section('content')
-@section('nom_page','Bureaux de poste')
-@section('custum_style')
-<link rel="stylesheet" href="{{asset("/MyStyle/style.css")}}">
-<style>
-    input {
-
-        text-transform: uppercase
-    }
-    input::placeholder {
-
-text-transform: none
-}
-    </style>
-@endsection
-
+<div class="content">
     <div class="modal fade" id="modal-xl">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -186,16 +170,9 @@ text-transform: none
           </div>
     </div>
 </div>
-@section('script')
-<script>
 
-$(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    });
-  });
-</script>
 
-@endsection
-@endsection
+</div>
+
+
+
