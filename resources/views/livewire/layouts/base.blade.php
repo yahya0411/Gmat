@@ -247,7 +247,7 @@
                                        </p>
                                      </a>
                                    </li>
-                            @yield('menu')
+
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
