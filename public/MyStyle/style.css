@@ -45,14 +45,14 @@
 
 .layout-navbar-fixed .wrapper .sidebar-dark-lightblue .brand-link:not([class*=navbar]) {
     background: #001f3f;
-}
+}/*
 [class*=sidebar-dark-] {
 
     background: #001f3f;
 }
 [class*=sidebar-dark] .brand-link {
     border-bottom: 1px solid #0a0a0a    ;
-}
+}*/
 
 .card-poste {
  background-image: -webkit-linear-gradient(0,#003c71,#005cae,#003c71);

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BpController;
 use App\Http\Controllers\DashboardController;
+use App\Livewire\BpComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,7 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/materiel', function () {
-    return view('materiel.index');
-})->name('materiel');
 
-Route::resource('bureau',BpController::class);
-Route::resource('dashboard',DashboardController::class);
+
+Route::get('bureau',BpComponent::class);
+
