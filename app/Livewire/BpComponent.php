@@ -8,24 +8,47 @@ use App\Models\Bp;
 class BpComponent extends Component
 {
 
-    public $Denomination;
+    public $Denomination, $code_postale, $code_comptable,$classe,$ccp_bureau,$id_m,$id_t,$ad_ip;
 
 
-    public function updated($fileds)
+    public function updated($fields)
     {
-        $this->validateonly($fileds,[
-'Denomination' => 'required:bps'
+        $this->validateonly($fields,[
+'Denomination' => 'required:bps',
+'code_postale' => 'required',
+'code_comptable' => 'required',
+'classe' => 'required',
+'ccp_bureau' => 'required',
+'id_m' => 'required',
+'id_t' => 'required',
+'ad_ip'=> 'required'
         ]);
     }
     public function storebp()
     {
         $this->validate([
-            'Denomination' => 'required'
+            'Denomination' => 'required:bps',
+            'code_postale' => 'required',
+            'code_comptable' => 'required',
+            'classe' => 'required',
+            'ccp_bureau' => 'required',
+            'id_m' => 'required',
+            "id_t" => 'required',
+            'ad_ip' => 'required'
                     ]);
 
      $bp = new Bp();
      $bp->Denomination = $this->Denomination;
+     $bp->CodeP = $this->code_postale;
+     $bp->CodeC = $this->code_comptable;
+     $bp->Ccp = $this->ccp_bureau;
+     $bp->Classe = $this->classe;
+     $bp->IdM = $this->id_m;
+     $bp->IdT = $this->id_t;
+     $bp->IpA = $this->ad_ip;
      $bp->save();
+
+     $this->dispatch('close-modal');
     }
     public function render()
     {

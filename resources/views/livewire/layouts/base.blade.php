@@ -295,7 +295,6 @@
             </footer>
         </div>
         <!-- ./wrapper -->
-        @livewireScripts
         <!-- REQUIRED SCRIPTS -->
         <!-- jQuery -->
         <script src="plugins/jquery/jquery.min.js"></script>
@@ -341,7 +340,8 @@
         <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
         <!-- AdminLTE App -->
         <script src="dist/js/adminlte.js"></script>
-
+        @livewireScripts
+          @stack('script')
         <!-- AdminLTE for demo purposes -->
         {{--
         <script src="dist/js/demo.js"></script>
