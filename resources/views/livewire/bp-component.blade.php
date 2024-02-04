@@ -19,52 +19,28 @@
                                 <th>CCP</th>
                                 <th>ID Marchant</th>
                                 <th>ID Terminal</th>
+                                <th>IP</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($bureaux as $bureau)
                             <tr>
-                                <td>Tlemcen RP</td>
-                                <td>RP</td>
-                                <td>13000</td>
-                                <td>13100</td>
-                                <td>312046</td>
-                                <td>13100</td>
-                                <td>312046</td>
+                                <td>{{$bureau->Denomination}}</td>
+                                <td>{{$bureau->Classe}}</td>
+                                <td>{{$bureau->CodeP}}</td>
+                                <td>{{$bureau->CodeC}}</td>
+                                <td>{{$bureau->Ccp}}</td>
+                                <td>{{$bureau->IdM}}</td>
+                                <td>{{$bureau->IdT}}</td>
+                                <td>{{$bureau->IpA}}</td>
                                 <td style="text-align:center">
                                     <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
                                     <a class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
                                     <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Maghnia HC</td>
-                                <td>HC</td>
-                                <td>13000</td>
-                                <td>13300</td>
-                                <td>311759</td>
-                                <td>13100</td>
-                                <td>312046</td>
-                                <td style="text-align:center">
-                                    <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Remchi</td>
-                                <td>R1</td>
-                                <td>13000</td>
-                                <td>13100</td>
-                                <td>313047</td>
-                                <td>13100</td>
-                                <td>312046</td>
-                                <td style="text-align:center">
-                                    <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -179,20 +155,27 @@
                 </form>
 
             </div>
-            @push('scripts')
+            @push('script')
             <script>
                 $(function() {
+
+
                     $("#example1").DataTable({
                         "responsive": true,
                         "lengthChange": false,
                         "autoWidth": false,
                         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
                     });
+
+
+                    Livewire.on('hideModal', () => {
+                        $('#modalbp').modal('hide');
+                        showModal = false;
+                        toastr.success('le bureaux a ete ajouter');
+                    });
+
                 });
 
-                window.addEventListener('close-modal') {
-                    $('#modalbp').modal('hide');
-                }
             </script>
             @endpush
 

@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <link rel="stylesheet" href="plugins/chart.js/Chart.css">
+        <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
         <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
         <link rel="stylesheet" href="/MyStyle/style.css">
@@ -335,13 +336,14 @@
         <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <script src="plugins/toastr/toastr.min.js"></script>
 
         <!-- overlayScrollbars -->
         <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
         <!-- AdminLTE App -->
         <script src="dist/js/adminlte.js"></script>
-        @livewireScripts
-          @stack('script')
+        @stack('script')
+
         <!-- AdminLTE for demo purposes -->
         {{--
         <script src="dist/js/demo.js"></script>
@@ -349,6 +351,6 @@
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
 
-
+        @livewireScripts
         </body>
         </html>

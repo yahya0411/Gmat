@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Bp;
+use App\Events\HideModalEvent;
 
 class BpComponent extends Component
 {
@@ -14,7 +15,7 @@ class BpComponent extends Component
     public function updated($fields)
     {
         $this->validateonly($fields,[
-'Denomination' => 'required:bps',
+'Denomination' => 'required ',
 'code_postale' => 'required',
 'code_comptable' => 'required',
 'classe' => 'required',
@@ -46,12 +47,18 @@ class BpComponent extends Component
      $bp->IdM = $this->id_m;
      $bp->IdT = $this->id_t;
      $bp->IpA = $this->ad_ip;
+
      $bp->save();
 
-     $this->dispatch('close-modal');
+    $this->reset(['Denomination','code_postale','code_comptable','classe','ccp_bureau','id_m','id_t','ad_ip']);
+
+     $this->dispatch('hideModal', new HideModalEvent());
+
     }
+
     public function render()
     {
-        return view('livewire.bp-component')->layout('livewire.layouts.base');
+        $bureau = Bp::all();
+        return view('livewire.bp-component',['bureaux' => $bureau])->layout('livewire.layouts.base');
     }
 }
