@@ -1,5 +1,16 @@
 <div>
+    @push('styles')
+    <style>
+        input {
 
+            text-transform: uppercase
+        }
+        input::placeholder {
+
+text-transform: none
+}
+        </style>
+    @endpush
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -82,16 +93,18 @@
                                             <div class="form-group">
                                                 <label for="classe">Classe </label>
                                                 <select class="form-control" id="classe" wire:model="classe">
-                                                    <option disabled selected>Enter la classe</option>
-
-                                                    <option>RP</option>
-                                                    <option>HC</option>
-                                                    <option>R1</option>
-                                                    <option>R2</option>
-                                                    <option>R3</option>
-                                                    <option>R4</option>
-                                                    <option>RD</option>
+                                                    <option value="" selected>Enter la classe</option>
+                                                    <option value="RP">RP</option>
+                                                    <option value="HC">HC</option>
+                                                    <option value="R1">R1</option>
+                                                    <option value="R2">R2</option>
+                                                    <option value="R3">R3</option>
+                                                    <option value="R4">R4</option>
+                                                    <option value="RD">RD</option>
                                                 </select>
+                                                @error('classe')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -99,13 +112,19 @@
                                                 <label for="code_postale">Code Postale</label>
                                                 <input type="text" class="form-control" id="code_postale"
                                                     placeholder="Enter code postale" wire:model="code_postale">
+                                                    @error('code_postale')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="code_comptable">Code Comptable</label>
-                                                <input type="text" class="form-control" id="code_comptable"
-                                                    wire:model="code_comptable" placeholder="Entrer code comptable">
+                                                <input type="text" class="form-control" id="CodeC"
+                                                    wire:model="CodeC" placeholder="Entrer code comptable">
+                                                    @error('CodeC')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -115,6 +134,9 @@
                                                 <label for="ccp_bureau">CCP</label>
                                                 <input type="text" class="form-control" id="ccp_bureau"
                                                     wire:model="ccp_bureau" placeholder="Enter ccp de bureau">
+                                                    @error('ccp_bureau')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -122,6 +144,9 @@
                                                 <label for="id_m">ID Marchant</label>
                                                 <input type="text" class="form-control" id="id_m"
                                                     wire:model="id_m" placeholder="Enter ID Marchant">
+                                                    @error('id_m')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -129,6 +154,9 @@
                                                 <label for="id_t">ID Terminal</label>
                                                 <input type="text" class="form-control" id="id_t"
                                                     wire:model="id_t" placeholder="Enter ID Terminal">
+                                                    @error('id_t')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -136,6 +164,9 @@
                                                 <label for="ad_ip">Adresse IP</label>
                                                 <input type="IP" class="form-control" id="ad_ip"
                                                     wire:model="ad_ip" placeholder="Enter Adresse IP">
+                                                    @error('ad_ip')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +180,7 @@
                     </div>
                     <div class="modal-footer justify-content-between">
 
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" wire:click="resetInput()">Fermer</button>
                         <button type="submit" class="btn btn-success">Enregistrer</button>
                     </div>
                 </form>
@@ -159,6 +190,27 @@
             <script>
                 $(function() {
 
+                    function alerting()
+                    {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toast-bottom-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "1500",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                            };
+                             toastr.info('le bureau a ete ajouter');
+                                                }
 
                     $("#example1").DataTable({
                         "responsive": true,
@@ -171,7 +223,8 @@
                     Livewire.on('hideModal', () => {
                         $('#modalbp').modal('hide');
                         showModal = false;
-                        toastr.success('le bureaux a ete ajouter');
+                        alerting();
+
                     });
 
                 });

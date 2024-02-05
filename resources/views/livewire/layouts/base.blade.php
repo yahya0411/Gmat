@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
         <link rel="stylesheet" href="/MyStyle/style.css">
-
+@stack('styles')
 
 
 
