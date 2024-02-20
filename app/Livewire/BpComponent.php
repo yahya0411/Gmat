@@ -24,12 +24,14 @@ class BpComponent extends Component
         'id_t' => 'required',
         'ad_ip'=> 'required'
         ]);
+
     }
     public function resetInput()
     {
         $this->reset(['Denomination','code_postale','CodeC','classe','ccp_bureau','id_m','id_t','ad_ip']);
 
     }
+
     public function storebp()
     {
         $this->validate([
@@ -56,8 +58,8 @@ class BpComponent extends Component
      $bp->save();
 
     $this->reset(['Denomination','code_postale','CodeC','classe','ccp_bureau','id_m','id_t','ad_ip']);
-
      $this->dispatch('hideModal', new HideModalEvent());
+
 
     }
 

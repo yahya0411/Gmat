@@ -1,17 +1,20 @@
-<div>
+<div class="content">
     @push('styles')
-    <style>
-        input {
+        <style>
+            input {
 
-            text-transform: uppercase
-        }
-        input::placeholder {
+                text-transform: uppercase
+            }
 
-text-transform: none
-}
+            input::placeholder {
+
+                text-transform: none
+            }
         </style>
     @endpush
-    <div class="row">
+
+    <!-- table bp -->
+    <div wire:ignore.self class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-poste">
@@ -20,7 +23,8 @@ text-transform: none
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
+
+                    <table id="bps" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Denomination</th>
@@ -36,21 +40,21 @@ text-transform: none
                         </thead>
                         <tbody>
                             @foreach ($bureaux as $bureau)
-                            <tr>
-                                <td>{{$bureau->Denomination}}</td>
-                                <td>{{$bureau->Classe}}</td>
-                                <td>{{$bureau->CodeP}}</td>
-                                <td>{{$bureau->CodeC}}</td>
-                                <td>{{$bureau->Ccp}}</td>
-                                <td>{{$bureau->IdM}}</td>
-                                <td>{{$bureau->IdT}}</td>
-                                <td>{{$bureau->IpA}}</td>
-                                <td style="text-align:center">
-                                    <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $bureau->Denomination }}</td>
+                                    <td>{{ $bureau->Classe }}</td>
+                                    <td>{{ $bureau->CodeP }}</td>
+                                    <td>{{ $bureau->CodeC }}</td>
+                                    <td>{{ $bureau->Ccp }}</td>
+                                    <td>{{ $bureau->IdM }}</td>
+                                    <td>{{ $bureau->IdT }}</td>
+                                    <td>{{ $bureau->IpA }}</td>
+                                    <td style="text-align:center">
+                                        <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#editbp"><i class="fa fa-pen"></i></a>
+                                        <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -59,7 +63,8 @@ text-transform: none
             </div>
         </div>
     </div>
-
+<!-- end table bp -->
+<!-- start adding modal bp -->
     <div wire:ignore.self class="modal fade" id="modalbp">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -68,7 +73,6 @@ text-transform: none
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-
                 </div>
                 <form wire:submit.prevent="storebp">
                     <div class="modal-body">
@@ -103,8 +107,8 @@ text-transform: none
                                                     <option value="RD">RD</option>
                                                 </select>
                                                 @error('classe')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -112,9 +116,9 @@ text-transform: none
                                                 <label for="code_postale">Code Postale</label>
                                                 <input type="text" class="form-control" id="code_postale"
                                                     placeholder="Enter code postale" wire:model="code_postale">
-                                                    @error('code_postale')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                                @error('code_postale')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -122,7 +126,7 @@ text-transform: none
                                                 <label for="code_comptable">Code Comptable</label>
                                                 <input type="text" class="form-control" id="CodeC"
                                                     wire:model="CodeC" placeholder="Entrer code comptable">
-                                                    @error('CodeC')
+                                                @error('CodeC')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -134,7 +138,7 @@ text-transform: none
                                                 <label for="ccp_bureau">CCP</label>
                                                 <input type="text" class="form-control" id="ccp_bureau"
                                                     wire:model="ccp_bureau" placeholder="Enter ccp de bureau">
-                                                    @error('ccp_bureau')
+                                                @error('ccp_bureau')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -144,7 +148,7 @@ text-transform: none
                                                 <label for="id_m">ID Marchant</label>
                                                 <input type="text" class="form-control" id="id_m"
                                                     wire:model="id_m" placeholder="Enter ID Marchant">
-                                                    @error('id_m')
+                                                @error('id_m')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -154,7 +158,7 @@ text-transform: none
                                                 <label for="id_t">ID Terminal</label>
                                                 <input type="text" class="form-control" id="id_t"
                                                     wire:model="id_t" placeholder="Enter ID Terminal">
-                                                    @error('id_t')
+                                                @error('id_t')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -164,7 +168,7 @@ text-transform: none
                                                 <label for="ad_ip">Adresse IP</label>
                                                 <input type="IP" class="form-control" id="ad_ip"
                                                     wire:model="ad_ip" placeholder="Enter Adresse IP">
-                                                    @error('ad_ip')
+                                                @error('ad_ip')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -180,58 +184,183 @@ text-transform: none
                     </div>
                     <div class="modal-footer justify-content-between">
 
-                        <button type="button" class="btn btn-default" data-dismiss="modal" wire:click="resetInput()">Fermer</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                         <button type="submit" class="btn btn-success">Enregistrer</button>
                     </div>
                 </form>
 
             </div>
-            @push('script')
-            <script>
-                $(function() {
+        </div>
+    </div>
+    <!-- ending adding modal bp -->
 
-                    function alerting()
-                    {
-                        toastr.options = {
-                            "closeButton": true,
-                            "debug": false,
-                            "newestOnTop": false,
-                            "progressBar": true,
-                            "positionClass": "toast-bottom-right",
-                            "preventDuplicates": false,
-                            "onclick": null,
-                            "showDuration": "300",
-                            "hideDuration": "1000",
-                            "timeOut": "1500",
-                            "extendedTimeOut": "1000",
-                            "showEasing": "swing",
-                            "hideEasing": "linear",
-                            "showMethod": "fadeIn",
-                            "hideMethod": "fadeOut"
-                            };
-                             toastr.info('le bureau a ete ajouter');
-                                                }
+<!-- start adding modal bp -->
+<div wire:ignore.self class="modal fade" id="editbp">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header card-poste">
+                <h4 class="modal-title">Modifier bureau de poste</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form wire:submit.prevent="storebp">
+                <div class="modal-body">
 
-                    $("#example1").DataTable({
-                        "responsive": true,
-                        "lengthChange": false,
-                        "autoWidth": false,
-                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                    });
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="denomination">Denomination</label>
+                                            <input type="text" class="form-control" id="denomination"
+                                                placeholder="Enter nom de bureau" wire:model="Denomination">
+                                            @error('Denomination')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="classe">Classe </label>
+                                            <select class="form-control" id="classe" wire:model="classe">
+                                                <option value="" selected>Enter la classe</option>
+                                                <option value="RP">RP</option>
+                                                <option value="HC">HC</option>
+                                                <option value="R1">R1</option>
+                                                <option value="R2">R2</option>
+                                                <option value="R3">R3</option>
+                                                <option value="R4">R4</option>
+                                                <option value="RD">RD</option>
+                                            </select>
+                                            @error('classe')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="code_postale">Code Postale</label>
+                                            <input type="text" class="form-control" id="code_postale"
+                                                placeholder="Enter code postale" wire:model="code_postale">
+                                            @error('code_postale')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="code_comptable">Code Comptable</label>
+                                            <input type="text" class="form-control" id="CodeC"
+                                                wire:model="CodeC" placeholder="Entrer code comptable">
+                                            @error('CodeC')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="ccp_bureau">CCP</label>
+                                            <input type="text" class="form-control" id="ccp_bureau"
+                                                wire:model="ccp_bureau" placeholder="Enter ccp de bureau">
+                                            @error('ccp_bureau')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="id_m">ID Marchant</label>
+                                            <input type="text" class="form-control" id="id_m"
+                                                wire:model="id_m" placeholder="Enter ID Marchant">
+                                            @error('id_m')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="id_t">ID Terminal</label>
+                                            <input type="text" class="form-control" id="id_t"
+                                                wire:model="id_t" placeholder="Enter ID Terminal">
+                                            @error('id_t')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="ad_ip">Adresse IP</label>
+                                            <input type="IP" class="form-control" id="ad_ip"
+                                                wire:model="ad_ip" placeholder="Enter Adresse IP">
+                                            @error('ad_ip')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- /.card-body -->
 
 
-                    Livewire.on('hideModal', () => {
-                        $('#modalbp').modal('hide');
-                        showModal = false;
-                        alerting();
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
 
-                    });
-
-                });
-
-            </script>
-            @endpush
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                </div>
+            </form>
 
         </div>
     </div>
 </div>
+<!-- ending adding modal bp -->
+</div>
+@push('script')
+
+<script>
+    $(function() {
+
+        function alerting() {
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "1500",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                            toastr.info('le bureau a ete ajouter');
+                        }
+
+        $("#bps").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        });
+
+        Livewire.on('hideModal', () => {
+                        $('#modalbp').modal('hide');
+                        alerting();
+                    });
+    });
+</script>
+@endpush
