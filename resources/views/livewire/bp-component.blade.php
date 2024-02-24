@@ -18,7 +18,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-poste">
-                    <a href="#" data-toggle="modal" data-target="#modalbp" class="float-right"
+                    <a href="#" data-toggle="modal" data-target="#addbp" class="float-right"
                         style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter un bureau</a>
                 </div>
                 <!-- /.card-header -->
@@ -51,7 +51,7 @@
                                     <td>{{ $bureau->IpA }}</td>
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#editbp"><i class="fa fa-pen"></i></a>
+                                        <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$bureau->id}})"><i class="fa fa-pen"></i></a>
                                         <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
@@ -65,7 +65,7 @@
     </div>
 <!-- end table bp -->
 <!-- start adding modal bp -->
-    <div wire:ignore.self class="modal fade" id="modalbp">
+    <div wire:ignore.self class="modal fade" id="addbp">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header card-poste">
@@ -324,8 +324,7 @@
 </div>
 <!-- ending adding modal bp -->
 </div>
-@push('script')
-
+@script
 <script>
     $(function() {
 
@@ -356,11 +355,17 @@
             "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         });
+        Livewire.on('fadeModal', () => {
+                        $('#editbp').modal('show');
+                       // alerting();
+                    });
 
         Livewire.on('hideModal', () => {
-                        $('#modalbp').modal('hide');
+                        $('#addbp').modal('hide');
+                        $('#editbp').modal('hide');
                         alerting();
                     });
     });
 </script>
-@endpush
+@endscript
+
