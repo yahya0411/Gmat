@@ -23,7 +23,20 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3">
+                            <form action="simple-results.html">
+                                <div class="input-group">
+                                    <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-lg btn-default">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div><br/>
                     <table id="bps" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -349,12 +362,7 @@
                             toastr.info('le bureau a ete ajouter');
                         }
 
-        $("#bps").DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        });
+
         Livewire.on('fadeModal', () => {
                         $('#editbp').modal('show');
                        // alerting();
