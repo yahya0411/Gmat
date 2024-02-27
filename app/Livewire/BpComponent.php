@@ -57,8 +57,8 @@ class BpComponent extends Component
 
      $bp->save();
 
-    $this->reset(['Denomination','code_postale','CodeC','classe','ccp_bureau','id_m','id_t','ad_ip']);
-     $this->dispatch('hideModal');
+    $this->resetInput();
+     $this->dispatch('addbp');
 
 
     }
@@ -87,8 +87,8 @@ class BpComponent extends Component
 
      $bp->save();
 
-    $this->reset(['Denomination','code_postale','CodeC','classe','ccp_bureau','id_m','id_t','ad_ip']);
-     $this->dispatch('hideModal');
+    $this->resetInput();
+     $this->dispatch('updatebp');
 
 
     }
@@ -106,6 +106,13 @@ class BpComponent extends Component
         $this->ad_ip = $bp->IpA;
 
       $this->dispatch('fadeModal');
+    }
+
+    public function deletebp($id)
+    {
+        Bp::findOrFail($id)->delete($id);
+        $this->dispatch('deletebp');
+
     }
     public function render()
     {

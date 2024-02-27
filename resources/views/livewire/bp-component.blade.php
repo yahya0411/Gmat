@@ -24,12 +24,12 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6 offset-md-3">
+                        <div class="col-md-2 offset-md-10">
                             <form action="simple-results.html">
                                 <div class="input-group">
-                                    <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here">
+                                    <input type="search" class="form-control form-control-md" placeholder="Rechercher ...">
                                     <div class="input-group-append">
-                                        <button type="submit" class="btn btn-lg btn-default">
+                                        <button type="submit" class="btn btn-md btn-default">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
@@ -52,6 +52,8 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if ($bureaux->count() > 0)
+
                             @foreach ($bureaux as $bureau)
                                 <tr>
                                     <td>{{ $bureau->Denomination }}</td>
@@ -65,10 +67,15 @@
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$bureau->id}})"><i class="fa fa-pen"></i></a>
-                                        <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deletebp({{$bureau->id}})"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
+                                @else
+                                <tr>
+                                    <td class="text-center" colspan="9">Aucun bureau </td>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -217,7 +224,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form wire:submit.prevent="storebp">
+            <form wire:submit.prevent="editbpdata">
                 <div class="modal-body">
 
                     <div class="row">
@@ -359,7 +366,6 @@
                                 "showMethod": "fadeIn",
                                 "hideMethod": "fadeOut"
                             };
-                            toastr.info('le bureau a ete ajouter');
                         }
 
 
@@ -368,10 +374,24 @@
                        // alerting();
                     });
 
-        Livewire.on('hideModal', () => {
-                        $('#addbp').modal('hide');
-                        $('#editbp').modal('hide');
+                    Livewire.on('updatebp', () => {
                         alerting();
+                        toastr.info('le bureau a ete Modifier');
+                        $('#editbp').modal('hide');
+
+
+                    });
+                    Livewire.on('deletebp', () => {
+                        alerting();
+                        toastr.error('le bureau a ete supprimer');
+
+                    });
+
+        Livewire.on('addbp', () => {
+                        $('#addbp').modal('hide');
+                        alerting();
+                        toastr.success('le bureau a ete Ajouter');
+
                     });
     });
 </script>
