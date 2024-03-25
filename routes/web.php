@@ -19,3 +19,8 @@ use App\Livewire\BpComponent;
 
 Route::get('bureau',BpComponent::class);
 
+Route::get('bps',function() {
+
+return view('livewire.bpd-component');
+
+});

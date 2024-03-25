@@ -65,7 +65,7 @@
                                     <td>{{ $bureau->IdT }}</td>
                                     <td>{{ $bureau->IpA }}</td>
                                     <td style="text-align:center">
-                                        <a class="btn btn-sm btn-info" wire:click.prevent="show({{$bureau->id}})"><i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$bureau->id}})"><i class="fa fa-pen"></i></a>
                                         <a class="btn btn-sm btn-danger" wire:click.prevent="deletebp({{$bureau->id}})"><i class="fa fa-trash"></i></a>
                                     </td>
@@ -359,7 +359,7 @@
                                 "onclick": null,
                                 "showDuration": "300",
                                 "hideDuration": "1000",
-                                "timeOut": "3500",
+                                "timeOut": "1500",
                                 "extendedTimeOut": "1000",
                                 "showEasing": "swing",
                                 "hideEasing": "linear",
@@ -376,14 +376,14 @@
 
                     Livewire.on('updatebp', () => {
                         alerting();
-                        toastr.info('le bureau {{ $bureau->Denomination }} ete Modifier');
+                        toastr.info('le bureau a ete Modifier');
                         $('#editbp').modal('hide');
 
 
                     });
                     Livewire.on('deletebp', () => {
                         alerting();
-                        toastr.error('le bureau {{ $bureau->Denomination }} a éte supprimer');
+                        toastr.error('le bureau a ete supprimer');
 
                     });
 

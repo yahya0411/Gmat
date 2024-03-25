@@ -114,14 +114,6 @@ class BpComponent extends Component
         $this->dispatch('deletebp');
 
     }
-    public function show($id)
-    {
-        $bp = Bp::findOrFail($id);
-
-        return redirect()->route('bps',['bureau' => $bp]);
-        //return view('livewire.bpd-component',['bureau' => $bp])->layout('livewire.layouts.base');
-
-    }
     public function render()
     {
         $bureau = Bp::all();
