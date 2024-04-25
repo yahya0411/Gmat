@@ -9,51 +9,51 @@ use App\Events\HideModalEvent;
 class BpComponent extends Component
 {
 
-    public $Denomination, $code_postale,$edit_bp, $CodeC,$classe,$ccp_bureau,$id_m,$id_t,$ad_ip;
+    public $Denomination, $Code_Postale,$edit_bp, $Code_Comptable,$Classe,$Ccp,$Id_Marchant,$Id_Terminal,$Address_IP;
 
 
     public function updated($fields)
     {
         $this->validateonly($fields,[
         'Denomination' => 'required|min:4',
-        'code_postale' => 'required',
-        'CodeC' => 'required|unique:bps',
-        'classe' => 'required',
-        'ccp_bureau' => 'required',
-        'id_m' => 'required',
-        'id_t' => 'required',
-        'ad_ip'=> 'required'
+        'Code_Postale' => 'required',
+        'Code_Comptable' => 'required|unique:ap_etablissements',
+        'Classe' => 'required',
+        'Ccp' => 'required',
+        'Id_Marchant' => 'required',
+        'Id_Terminal' => 'required',
+        'Address_IP'=> 'required'
         ]);
 
     }
     public function resetInput()
     {
-        $this->reset(['Denomination','code_postale','CodeC','classe','ccp_bureau','id_m','id_t','ad_ip']);
+        $this->reset(['Denomination','Code_Postale','Code_Comptable','Classe','Ccp','Id_Marchant','Id_Terminal','Address_IP']);
 
     }
 
     public function storebp()
     {
         $this->validate([
-            'Denomination' => 'required:bps',
-            'code_postale' => 'required',
-            'CodeC' => 'required',
-            'classe' => 'required',
-            'ccp_bureau' => 'required',
-            'id_m' => 'required',
-            "id_t" => 'required',
-            'ad_ip' => 'required'
+            'Denomination' => 'required:ap_etablissements',
+            'Code_Postale' => 'required',
+            'Code_Comptable' => 'required',
+            'Classe' => 'required',
+            'Ccp' => 'required',
+            'Id_Marchant' => 'required',
+            "Id_Terminal" => 'required',
+            'Address_IP' => 'required'
        ]);
 
      $bp = new Bp();
      $bp->Denomination = $this->Denomination;
-     $bp->CodeP = $this->code_postale;
-     $bp->CodeC = $this->CodeC;
-     $bp->Ccp = $this->ccp_bureau;
-     $bp->Classe = $this->classe;
-     $bp->IdM = $this->id_m;
-     $bp->IdT = $this->id_t;
-     $bp->IpA = $this->ad_ip;
+     $bp->Code_Postale = $this->Code_Postale;
+     $bp->Code_Comptable = $this->Code_Comptable;
+     $bp->Ccp = $this->Ccp;
+     $bp->Classe = $this->Classe;
+     $bp->Id_Marchant = $this->Id_Marchant;
+     $bp->Id_Terminal = $this->Id_Terminal;
+     $bp->Address_IP = $this->Address_IP;
 
      $bp->save();
 
@@ -65,25 +65,25 @@ class BpComponent extends Component
     public function editbpdata()
     {
         $this->validate([
-            'Denomination' => 'required:bps',
-            'code_postale' => 'required',
-            'CodeC' => 'required',
-            'classe' => 'required',
-            'ccp_bureau' => 'required',
-            'id_m' => 'required',
-            "id_t" => 'required',
-            'ad_ip' => 'required'
+            'Denomination' => 'required:ap_etablissements',
+            'Code_Postale' => 'required',
+            'Code_Comptable' => 'required',
+            'Classe' => 'required',
+            'Ccp' => 'required',
+            'Id_Marchant' => 'required',
+            "Id_Terminal" => 'required',
+            'Address_IP' => 'required'
        ]);
 
-       $bp = Bp::findOrFail($this->edit_bp);
-       $bp->Denomination = $this->Denomination;
-     $bp->CodeP = $this->code_postale;
-     $bp->CodeC = $this->CodeC;
-     $bp->Ccp = $this->ccp_bureau;
-     $bp->Classe = $this->classe;
-     $bp->IdM = $this->id_m;
-     $bp->IdT = $this->id_t;
-     $bp->IpA = $this->ad_ip;
+    $bp = Bp::findOrFail($this->edit_bp);
+    $bp->Denomination = $this->Denomination;
+     $bp->Code_Postale = $this->Code_Postale;
+     $bp->Code_Comptable = $this->Code_Comptable;
+     $bp->Ccp = $this->Ccp;
+     $bp->Classe = $this->Classe;
+     $bp->Id_Marchant = $this->Id_Marchant;
+     $bp->Id_Terminal = $this->Id_Terminal;
+     $bp->Address_IP = $this->Address_IP;
 
      $bp->save();
 
@@ -92,18 +92,18 @@ class BpComponent extends Component
 
 
     }
-    public function editbps($id)
+    public function editap_etablissements($id)
     {
         $bp = Bp::findOrFail($id);
         $this->edit_bp = $bp->id;
         $this->Denomination = $bp->Denomination;
-        $this->code_postale = $bp->CodeP;
-        $this->CodeC = $bp->CodeC;
-        $this->ccp_bureau = $bp->Ccp;
-        $this->classe = $bp->Classe;
-        $this->id_m = $bp->IdM;
-        $this->id_t = $bp->IdT;
-        $this->ad_ip = $bp->IpA;
+        $this->Code_Postale = $bp->Code_Postale;
+        $this->Code_Comptable = $bp->Code_Comptable;
+        $this->Ccp = $bp->Ccp;
+        $this->Classe = $bp->Classe;
+        $this->Id_Marchant = $bp->Id_Marchant;
+        $this->Id_Terminal = $bp->Id_Terminal;
+        $this->Address_IP = $bp->Address_IP;
 
       $this->dispatch('fadeModal');
     }
@@ -118,7 +118,7 @@ class BpComponent extends Component
     {
         $bp = Bp::findOrFail($id);
 
-        return redirect()->route('bps',['bureau' => $bp]);
+        return redirect()->route('ap_etablissements',['bureau' => $bp]);
         //return view('livewire.bpd-component',['bureau' => $bp])->layout('livewire.layouts.base');
 
     }

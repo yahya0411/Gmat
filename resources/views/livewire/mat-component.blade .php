@@ -58,7 +58,7 @@
                                 <tr>
                                     <td>{{ $bureau->Denomination }}</td>
                                     <td>{{ $bureau->Classe }}</td>
-                                    <td>{{ $bureau->CodeP }}</td>
+                                    <td>{{ $bureau->Code_Postale }}</td>
                                     <td>{{ $bureau->CodeC }}</td>
                                     <td>{{ $bureau->Ccp }}</td>
                                     <td>{{ $bureau->IdM }}</td>

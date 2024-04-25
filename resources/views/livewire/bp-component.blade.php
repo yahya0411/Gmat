@@ -58,12 +58,12 @@
                                 <tr>
                                     <td>{{ $bureau->Denomination }}</td>
                                     <td>{{ $bureau->Classe }}</td>
-                                    <td>{{ $bureau->CodeP }}</td>
-                                    <td>{{ $bureau->CodeC }}</td>
+                                    <td>{{ $bureau->Code_Postale }}</td>
+                                    <td>{{ $bureau->Code_Comptable }}</td>
                                     <td>{{ $bureau->Ccp }}</td>
-                                    <td>{{ $bureau->IdM }}</td>
-                                    <td>{{ $bureau->IdT }}</td>
-                                    <td>{{ $bureau->IpA }}</td>
+                                    <td>{{ $bureau->Id_Marchant }}</td>
+                                    <td>{{ $bureau->Id_Terminal }}</td>
+                                    <td>{{ $bureau->Address_IP }}</td>
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info" wire:click.prevent="show({{$bureau->id}})"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$bureau->id}})"><i class="fa fa-pen"></i></a>
@@ -116,7 +116,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="classe">Classe </label>
-                                                <select class="form-control" id="classe" wire:model="classe">
+                                                <select class="form-control" id="Classe" wire:model="Classe">
                                                     <option value="" selected>Enter la classe</option>
                                                     <option value="RP">RP</option>
                                                     <option value="HC">HC</option>
@@ -126,17 +126,17 @@
                                                     <option value="R4">R4</option>
                                                     <option value="RD">RD</option>
                                                 </select>
-                                                @error('classe')
+                                                @error('Classe')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="code_postale">Code Postale</label>
-                                                <input type="text" class="form-control" id="code_postale"
-                                                    placeholder="Enter code postale" wire:model="code_postale">
-                                                @error('code_postale')
+                                                <label for="Code_postale">Code Postale</label>
+                                                <input type="text" class="form-control" id="Code_Postale"
+                                                    placeholder="Enter code postale" wire:model="Code_Postale">
+                                                @error('Code_Postale')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -145,8 +145,8 @@
                                             <div class="form-group">
                                                 <label for="code_comptable">Code Comptable</label>
                                                 <input type="text" class="form-control" id="CodeC"
-                                                    wire:model="CodeC" placeholder="Entrer code comptable">
-                                                @error('CodeC')
+                                                    wire:model="Code_Comptable" placeholder="Entrer code comptable">
+                                                @error('Code_Comptable')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -156,9 +156,9 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="ccp_bureau">CCP</label>
-                                                <input type="text" class="form-control" id="ccp_bureau"
-                                                    wire:model="ccp_bureau" placeholder="Enter ccp de bureau">
-                                                @error('ccp_bureau')
+                                                <input type="text" class="form-control" id="Ccp"
+                                                    wire:model="Ccp" placeholder="Enter ccp de bureau">
+                                                @error('Ccp')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -166,9 +166,9 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="id_m">ID Marchant</label>
-                                                <input type="text" class="form-control" id="id_m"
-                                                    wire:model="id_m" placeholder="Enter ID Marchant">
-                                                @error('id_m')
+                                                <input type="text" class="form-control" id="Id_Marchant"
+                                                    wire:model="Id_Marchant" placeholder="Enter ID Marchant">
+                                                @error('Id_Marchant')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -176,9 +176,9 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="id_t">ID Terminal</label>
-                                                <input type="text" class="form-control" id="id_t"
-                                                    wire:model="id_t" placeholder="Enter ID Terminal">
-                                                @error('id_t')
+                                                <input type="text" class="form-control" id="Id_Terminal"
+                                                    wire:model="Id_Terminal" placeholder="Enter ID Terminal">
+                                                @error('Id_Terminal')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -186,9 +186,9 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="ad_ip">Adresse IP</label>
-                                                <input type="IP" class="form-control" id="ad_ip"
-                                                    wire:model="ad_ip" placeholder="Enter Adresse IP">
-                                                @error('ad_ip')
+                                                <input type="IP" class="form-control" id="Address_IP"
+                                                    wire:model="Address_IP" placeholder="Enter Adresse IP">
+                                                @error('Address_IP')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -246,7 +246,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="classe">Classe </label>
-                                            <select class="form-control" id="classe" wire:model="classe">
+                                            <select class="form-control" id="classe" wire:model="Classe">
                                                 <option value="" selected>Enter la classe</option>
                                                 <option value="RP">RP</option>
                                                 <option value="HC">HC</option>
@@ -256,7 +256,7 @@
                                                 <option value="R4">R4</option>
                                                 <option value="RD">RD</option>
                                             </select>
-                                            @error('classe')
+                                            @error('Classe')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -264,9 +264,9 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="code_postale">Code Postale</label>
-                                            <input type="text" class="form-control" id="code_postale"
-                                                placeholder="Enter code postale" wire:model="code_postale">
-                                            @error('code_postale')
+                                            <input type="text" class="form-control" id="Code_Postale"
+                                                placeholder="Enter code postale" wire:model="Code_Postale">
+                                            @error('Code_Postale')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -274,9 +274,9 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="code_comptable">Code Comptable</label>
-                                            <input type="text" class="form-control" id="CodeC"
-                                                wire:model="CodeC" placeholder="Entrer code comptable">
-                                            @error('CodeC')
+                                            <input type="text" class="form-control" id="Code_Comptable"
+                                                wire:model="Code_Comptable" placeholder="Entrer code comptable">
+                                            @error('Code_Comptable')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -286,9 +286,9 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="ccp_bureau">CCP</label>
-                                            <input type="text" class="form-control" id="ccp_bureau"
-                                                wire:model="ccp_bureau" placeholder="Enter ccp de bureau">
-                                            @error('ccp_bureau')
+                                            <input type="text" class="form-control" id="Ccp"
+                                                wire:model="Ccp" placeholder="Enter ccp de bureau">
+                                            @error('Ccp')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -296,9 +296,9 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="id_m">ID Marchant</label>
-                                            <input type="text" class="form-control" id="id_m"
-                                                wire:model="id_m" placeholder="Enter ID Marchant">
-                                            @error('id_m')
+                                            <input type="text" class="form-control" id="Id_Marchant"
+                                                wire:model="Id_Marchant" placeholder="Enter ID Marchant">
+                                            @error('Id_Marchant')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -306,9 +306,9 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="id_t">ID Terminal</label>
-                                            <input type="text" class="form-control" id="id_t"
-                                                wire:model="id_t" placeholder="Enter ID Terminal">
-                                            @error('id_t')
+                                            <input type="text" class="form-control" id="Id_Terminal"
+                                                wire:model="Id_Terminal" placeholder="Enter ID Terminal">
+                                            @error('Id_Terminal')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -316,9 +316,9 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="ad_ip">Adresse IP</label>
-                                            <input type="IP" class="form-control" id="ad_ip"
-                                                wire:model="ad_ip" placeholder="Enter Adresse IP">
-                                            @error('ad_ip')
+                                            <input type="IP" class="form-control" id="Address_IP"
+                                                wire:model="Address_IP" placeholder="Enter Adresse IP">
+                                            @error('Address_IP')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -376,14 +376,14 @@
 
                     Livewire.on('updatebp', () => {
                         alerting();
-                        toastr.info('le bureau {{ $bureau->Denomination }} ete Modifier');
+                        toastr.info('le bureau ete Modifier');
                         $('#editbp').modal('hide');
 
 
                     });
                     Livewire.on('deletebp', () => {
                         alerting();
-                        toastr.error('le bureau {{ $bureau->Denomination }} a éte supprimer');
+                        toastr.error('le bureau a éte supprimer');
 
                     });
 
