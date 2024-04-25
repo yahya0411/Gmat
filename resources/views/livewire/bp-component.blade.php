@@ -67,7 +67,7 @@
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info" wire:click.prevent="show({{$bureau->id}})"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$bureau->id}})"><i class="fa fa-pen"></i></a>
-                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deletebp({{$bureau->id}})"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deletebps({{$bureau->id}})"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

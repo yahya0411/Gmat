@@ -35,7 +35,7 @@ class BpComponent extends Component
     public function storebp()
     {
         $this->validate([
-            'Denomination' => 'required:ap_etablissements',
+            'Denomination' => 'required:bpap_etablissements',
             'Code_Postale' => 'required',
             'Code_Comptable' => 'required',
             'Classe' => 'required',
@@ -92,7 +92,7 @@ class BpComponent extends Component
 
 
     }
-    public function editap_etablissements($id)
+    public function editbps($id)
     {
         $bp = Bp::findOrFail($id);
         $this->edit_bp = $bp->id;
@@ -118,7 +118,7 @@ class BpComponent extends Component
     {
         $bp = Bp::findOrFail($id);
 
-        return redirect()->route('ap_etablissements',['bureau' => $bp]);
+        return redirect()->route('bps',['bureau' => $bp]);
         //return view('livewire.bpd-component',['bureau' => $bp])->layout('livewire.layouts.base');
 
     }
