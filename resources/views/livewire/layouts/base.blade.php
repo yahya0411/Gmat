@@ -183,7 +183,7 @@
                                   </li>
                                  <li class="nav-header">Gestion d'etablisements</li>
                                  <li class="nav-item">
-                                    <a href="bureau.index" class="nav-link">
+                                    <a href="/bureau" class="nav-link">
                                       <i class="nav-icon fas fa-building"></i>
                                       <p>
                                         Bureau de poste
@@ -208,7 +208,7 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                       <li class="nav-item">
-                                        <a href="./index.html" class="nav-link">
+                                        <a href="/commercant" class="nav-link">
                                           <i class="far fa-circle nav-icon"></i>
                                           <p>Commercant</p>
                                         </a>

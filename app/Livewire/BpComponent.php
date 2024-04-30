@@ -20,8 +20,7 @@ class BpComponent extends Component
         'Code_Comptable' => 'required|unique:ap_etablissements',
         'Classe' => 'required',
         'Ccp' => 'required',
-        'Id_Marchant' => 'required',
-        'Id_Terminal' => 'required',
+
         'Address_IP'=> 'required'
         ]);
 
@@ -35,13 +34,11 @@ class BpComponent extends Component
     public function storebp()
     {
         $this->validate([
-            'Denomination' => 'required:bpap_etablissements',
+            'Denomination' => 'required:ap_etablissements',
             'Code_Postale' => 'required',
             'Code_Comptable' => 'required',
             'Classe' => 'required',
             'Ccp' => 'required',
-            'Id_Marchant' => 'required',
-            "Id_Terminal" => 'required',
             'Address_IP' => 'required'
        ]);
 
@@ -54,6 +51,7 @@ class BpComponent extends Component
      $bp->Id_Marchant = $this->Id_Marchant;
      $bp->Id_Terminal = $this->Id_Terminal;
      $bp->Address_IP = $this->Address_IP;
+     $bp->Type = 0;
 
      $bp->save();
 
@@ -70,8 +68,6 @@ class BpComponent extends Component
             'Code_Comptable' => 'required',
             'Classe' => 'required',
             'Ccp' => 'required',
-            'Id_Marchant' => 'required',
-            "Id_Terminal" => 'required',
             'Address_IP' => 'required'
        ]);
 
@@ -84,6 +80,7 @@ class BpComponent extends Component
      $bp->Id_Marchant = $this->Id_Marchant;
      $bp->Id_Terminal = $this->Id_Terminal;
      $bp->Address_IP = $this->Address_IP;
+     $bp->Type = 0;
 
      $bp->save();
 

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BpController;
 use App\Http\Controllers\DashboardController;
 use App\Livewire\BpComponent;
+use App\Livewire\CommercantComponent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,10 @@ use App\Livewire\BpComponent;
 |
 */
 
+Route::get('commercant',CommercantComponent::class);
 
 
 Route::get('bureau',BpComponent::class);
+
+
 
