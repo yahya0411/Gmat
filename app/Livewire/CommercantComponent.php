@@ -23,7 +23,7 @@ class CommercantComponent extends Component
 
     }
 
-    public function storecommercant()
+    public function storeclient()
     {
         $this->validate([
             'Denomination' => 'required',
@@ -41,11 +41,8 @@ class CommercantComponent extends Component
      $Commercant->Telephone = $this->Telephone;
      $Commercant->Address = $this->Address;
      $Commercant->Commune = $this->Commune;
-
      $Commercant->Etat = 0;
-
      $Commercant->Type = 0;
-
      $Commercant->save();
 
     $this->resetInput();
@@ -66,6 +63,34 @@ class CommercantComponent extends Component
         $this->Commune = $Commercant->Commune;
 
         $this->dispatch('fadeModal');
+    }
+
+    public function editclientdata()
+    {
+        $this->validate([
+            'Denomination' => 'required',
+            'Activite' => 'required',
+            'Rib' => 'required',
+            'Telephone' => 'required',
+            'Address' => 'required',
+            'Commune' =>'required'
+        ]);
+
+        $Commercant = Commercant::findOrFail($this->edit_client);
+        $Commercant->Denomination = $this->Denomination;
+        $Commercant->Activite = $this->Activite;
+        $Commercant->Rib = $this->Rib;
+        $Commercant->Telephone = $this->Telephone;
+        $Commercant->Address = $this->Address;
+        $Commercant->Commune = $this->Commune;
+        $Commercant->Etat = 0;
+        $Commercant->Type = 0;
+        $Commercant->save();
+
+        $this->resetInput();
+        $this->dispatch('updatebp');
+
+
     }
     public function deleteclient($id)
     {

@@ -100,7 +100,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form wire:submit.prevent="storecommercant">
+                <form wire:submit.prevent="storeclient">
                     <div class="modal-body">
 
                         <div class="row">
@@ -201,7 +201,7 @@
     <!-- ending adding modal bp -->
 
 <!-- start editing modal bp -->
-<div wire:ignore.self class="modal fade" id="editbp">
+<div wire:ignore.self class="modal fade" id="editclient">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header card-poste">
@@ -210,7 +210,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form wire:submit.prevent="editclient">
+            <form wire:submit.prevent="editclientdata">
                 <div class="modal-body">
 
                     <div class="row">
@@ -335,20 +335,20 @@
 
 
         Livewire.on('fadeModal', () => {
-                        $('#editbp').modal('show');
+                        $('#editclient').modal('show');
                        // alerting();
                     });
 
                     Livewire.on('updatebp', () => {
                         alerting();
-                        toastr.info('le bureau ete Modifier');
-                        $('#editbp').modal('hide');
+                        toastr.info('le client ete Modifier');
+                        $('#editclient').modal('hide');
 
 
                     });
                     Livewire.on('deletebp', () => {
                         alerting();
-                        toastr.error('le bureau a éte supprimer');
+                        toastr.error('le client a éte supprimer');
 
                     });
 
