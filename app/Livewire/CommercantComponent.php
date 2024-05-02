@@ -4,17 +4,22 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Commercant;
+use Livewire\WithPagination;
 
 class CommercantComponent extends Component
 {
+    use WithPagination;
     public $Denomination, $Activite,$edit_client, $Rib,$Telephone,$Address,$Etat,$Type,$Commune;
 
     public function render()
     {
 
         $commercants = Commercant::all();
-        return view('livewire.commercants-component',['commercants' => $commercants])->layout('livewire.layouts.base');
+//return view('livewire.commercants-component',['commercants' => $commercants])->layout('livewire.layouts.base');
 
+        return view('livewire.commercants-component', [
+            'commercants' => Commercant::Paginate(10),
+        ])->layout('livewire.layouts.base');
     }
 
     public function resetInput()

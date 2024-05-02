@@ -214,7 +214,7 @@
                                         </a>
                                       </li>
                                       <li class="nav-item">
-                                        <a href="./index2.html" class="nav-link">
+                                        <a href="/at" class="nav-link">
                                           <i class="far fa-circle nav-icon"></i>
                                           <p>Algerie Telecom</p>
                                         </a>
@@ -237,6 +237,18 @@
                                           <p>SNTF</p>
                                         </a>
                                       </li>
+                                        <li class="nav-item">
+                                            <a href="./index3.html" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>AAPI</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./index3.html" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>SAA</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                   </li>
                                   <li class="nav-header">Configuration</li>

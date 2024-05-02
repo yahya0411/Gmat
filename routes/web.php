@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AtComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BpController;
 use App\Http\Controllers\DashboardController;
@@ -21,7 +22,7 @@ Route::get('commercant',CommercantComponent::class);
 
 
 Route::get('bureau',BpComponent::class);
-
+Route::get('at',AtComponent::class);
 
 Route::get('/',function() {
 

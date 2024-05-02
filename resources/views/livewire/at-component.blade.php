@@ -19,18 +19,18 @@
             <div class="card">
                 <div class="card-header card-poste">
                     <a href="#" data-toggle="modal" data-target="#addclient" class="float-right"
-                        style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter un client</a>
+                        style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter une agence </a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="co.jpg" width="80" height="40" alt="">
+                            <img src="at.png" width="100" height="40" alt="">
                         </div>
                         <div class="col-md-2 offset-md-7">
                             <form action="simple-results.html">
                                 <div class="input-group">
-                                    <input type="search" wire:model.live="search" class="form-control form-control-md" placeholder="Rechercher ...">
+                                    <input type="search" class="form-control form-control-md" placeholder="Rechercher ...">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-md btn-default">
                                             <i class="fa fa-search"></i>
@@ -44,9 +44,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>NOM</th>
+                                <th>Dénomination</th>
                                 <th>Activite</th>
-                                <th>RIB</th>
                                 <th>Telephone</th>
                                 <th>Address</th>
                                 <th>Commune</th>
@@ -62,7 +61,6 @@
                                     <td>{{ $commercant->id }} / {{substr(date("Y"),-2)}}</td>
                                     <td>{{ $commercant->Denomination }}</td>
                                     <td>{{ $commercant->Activite }}</td>
-                                    <td>{{ $commercant->Rib }}</td>
                                     <td>{{ $commercant->Telephone }}</td>
                                     <td>{{ $commercant->Address }}</td>
                                     <td>{{ $commercant->Commune }}</td>
@@ -72,6 +70,7 @@
                                     @endif </td>
 
 
+
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info" wire:click.prevent="show({{$commercant->id}})"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-sm btn-success" wire:click.prevent="editclient({{$commercant->id}})"><i class="fa fa-pen"></i></a>
@@ -79,29 +78,14 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            <div>
-
-
-                            </div>
-
-                            @else
+                                @else
                                 <tr>
-                                    <td class="text-center" colspan="9">Aucun Commercant </td>
+                                    <td class="text-center" colspan="9">Aucun Agence </td>
                                 </tr>
                             @endif
                         </tbody>
                     </table>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4">
-                            {{ $commercants->links() }}
-
-                        </div>
-
-                    </div>
-
                 </div>
-
                 <!-- /.card-body -->
             </div>
         </div>
@@ -126,47 +110,20 @@
 
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-4">
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="denomination">Denomination</label>
                                                 <input type="text" class="form-control" id="denomination"
-                                                    placeholder="Enter nom de client" wire:model="Denomination">
+                                                       placeholder="Enter nom de client" wire:model="Denomination">
                                                 @error('Denomination')
-                                                    <span class="text-danger">{{ $message }}</span>
+                                                <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="Activite">Activite </label>
-                                                <select class="form-control" id="Activite" wire:model="Activite">
-                                                <option value="" selected>Enter la Activite</option>
-                                                <option value="PHARMACIE">PHARMACIE</option>
-                                                <option value="COMMERCANT">COMMERCANT</option>
-                                                <option value="PAPETERIE">PAPETERIE</option>
-                                                <option value="ASSURANCE">ASSURANCE</option>
-                                                <option value="CLINIQUE">CLINIQUE</option>
-                                                <option value="HOTELERIE">HOTELERIE</option>
-                                                </select>
-                                                @error('Activite')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="Code_postale">Rib</label>
-                                                <input type="text" class="form-control" id="Rib"
-                                                    placeholder="Enter le Rib" wire:model="Rib">
-                                                @error('Rib')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="id_m">Telephone</label>
                                                 <input type="text" class="form-control" id="Telephone"
@@ -176,7 +133,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="ccp_bureau">Address</label>
                                                 <input type="text" class="form-control" id="Address"
@@ -186,7 +143,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="id_t">Commune</label>
                                                 <input type="text" class="form-control" id="Commune"
@@ -233,9 +190,13 @@
                     <div class="row">
 
                         <div class="col-md-12">
+
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-4">
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="denomination">Denomination</label>
                                             <input type="text" class="form-control" id="denomination"
@@ -245,37 +206,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="Activite">Activite </label>
-                                            <select class="form-control" id="Activite" wire:model="Activite">
-                                                <option value="" selected>Enter la Activite</option>
-                                                <option value="PHARMACIE">PHARMACIE</option>
-                                                <option value="COMMERCANT">COMMERCANT</option>
-                                                <option value="PAPETERIE">PAPETERIE</option>
-                                                <option value="ASSURANCE">ASSURANCE</option>
-                                                <option value="CLINIQUE">CLINIQUE</option>
-                                                <option value="HOTELERIE">HOTELERIE</option>
-                                            </select>
-                                            @error('Activite')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="Code_postale">Rib</label>
-                                            <input type="text" class="form-control" id="Rib"
-                                                   placeholder="Enter le Rib" wire:model="Rib">
-                                            @error('Rib')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="id_m">Telephone</label>
                                             <input type="text" class="form-control" id="Telephone"
@@ -285,7 +216,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="ccp_bureau">Address</label>
                                             <input type="text" class="form-control" id="Address"
@@ -295,7 +226,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="id_t">Commune</label>
                                             <input type="text" class="form-control" id="Commune"
