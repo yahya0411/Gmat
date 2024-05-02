@@ -44,7 +44,7 @@
                                 <th>NOM</th>
                                 <th>Activite</th>
                                 <th>RIB</th>
-                                <th>Tlephone</th>
+                                <th>Telephone</th>
                                 <th>Address</th>
                                 <th>Commune</th>
                                 <th>Etat</th>
@@ -72,8 +72,8 @@
                                 </td>
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info" wire:click.prevent="show({{$commercant->id}})"><i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$commercant->id}})"><i class="fa fa-pen"></i></a>
-                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deletebps({{$commercant->id}})"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-sm btn-success" wire:click.prevent="editclient({{$commercant->id}})"><i class="fa fa-pen"></i></a>
+                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deleteclient({{$commercant->id}})"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -121,15 +121,17 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="classe">Activite </label>
-                                                <select class="form-control" id="Classe" wire:model="Activite">
-                                                    <option value="" selected>Enter la Activite</option>
-                                                    <option value="PHARMACIE">PHARMACIE</option>
-                                                    <option value="COMMERCANT">COMMERCANT</option>
-                                                    <option value="ALIMENTATION GENERALE">ALIMENTATION GENERALE</option>
-                                                    <option value="PAPETERIE">PAPETERIE</option>
+                                                <label for="Activite">Activite </label>
+                                                <select class="form-control" id="Activite" wire:model="Activite">
+                                                <option value="" selected>Enter la Activite</option>
+                                                <option value="PHARMACIE">PHARMACIE</option>
+                                                <option value="COMMERCANT">COMMERCANT</option>
+                                                <option value="PAPETERIE">PAPETERIE</option>
+                                                <option value="ASSURANCE">ASSURANCE</option>
+                                                <option value="CLINIQUE">CLINIQUE</option>
+                                                <option value="HOTELERIE">HOTELERIE</option>
                                                 </select>
-                                                @error('Classe')
+                                                @error('Activite')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -198,112 +200,91 @@
     </div>
     <!-- ending adding modal bp -->
 
-<!-- start adding modal bp -->
+<!-- start editing modal bp -->
 <div wire:ignore.self class="modal fade" id="editbp">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header card-poste">
-                <h4 class="modal-title">Modifier bureau de poste</h4>
+                <h4 class="modal-title">Modifier client</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form wire:submit.prevent="editbpdata">
+            <form wire:submit.prevent="editclient">
                 <div class="modal-body">
 
                     <div class="row">
 
                         <div class="col-md-12">
-
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="denomination">Denomination</label>
                                             <input type="text" class="form-control" id="denomination"
-                                                placeholder="Enter nom de bureau" wire:model="Denomination">
+                                                   placeholder="Enter nom de client" wire:model="Denomination">
                                             @error('Denomination')
-                                                <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="classe">Classe </label>
-                                            <select class="form-control" id="classe" wire:model="Classe">
-                                                <option value="" selected>Enter la classe</option>
+                                            <label for="Activite">Activite </label>
+                                            <select class="form-control" id="Activite" wire:model="Activite">
+                                                <option value="" selected>Enter la Activite</option>
                                                 <option value="PHARMACIE">PHARMACIE</option>
                                                 <option value="COMMERCANT">COMMERCANT</option>
-                                                <option value="ALIMENTATION GENERALE">ALIMENTATION GENERALE</option>
                                                 <option value="PAPETERIE">PAPETERIE</option>
-                                                <option value="R3">R3</option>
-                                                <option value="R4">R4</option>
-                                                <option value="RD">RD</option>
+                                                <option value="ASSURANCE">ASSURANCE</option>
+                                                <option value="CLINIQUE">CLINIQUE</option>
+                                                <option value="HOTELERIE">HOTELERIE</option>
                                             </select>
-                                            @error('Classe')
-                                                <span class="text-danger">{{ $message }}</span>
+                                            @error('Activite')
+                                            <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="code_postale">Code Postale</label>
-                                            <input type="text" class="form-control" id="Code_Postale"
-                                                placeholder="Enter code postale" wire:model="Code_Postale">
-                                            @error('Code_Postale')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="code_comptable">Telephone</label>
-                                            <input type="text" class="form-control" id="Code_Comptable"
-                                                wire:model="Code_Comptable" placeholder="Entrer code comptable">
-                                            @error('Code_Comptable')
-                                                <span class="text-danger">{{ $message }}</span>
+                                            <label for="Code_postale">Rib</label>
+                                            <input type="text" class="form-control" id="Rib"
+                                                   placeholder="Enter le Rib" wire:model="Rib">
+                                            @error('Rib')
+                                            <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3">
+
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="ccp_bureau">CCP</label>
-                                            <input type="text" class="form-control" id="Ccp"
-                                                wire:model="Ccp" placeholder="Enter ccp de bureau">
-                                            @error('Ccp')
-                                                <span class="text-danger">{{ $message }}</span>
+                                            <label for="id_m">Telephone</label>
+                                            <input type="text" class="form-control" id="Telephone"
+                                                   wire:model="Telephone" placeholder="Enter Telephone">
+                                            @error('Telephone')
+                                            <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="id_m">ID Marchant</label>
-                                            <input type="text" class="form-control" id="Id_Marchant"
-                                                wire:model="Id_Marchant" placeholder="Enter ID Marchant">
-                                            @error('Id_Marchant')
-                                                <span class="text-danger">{{ $message }}</span>
+                                            <label for="ccp_bureau">Address</label>
+                                            <input type="text" class="form-control" id="Address"
+                                                   wire:model="Address" placeholder="Enter l'address">
+                                            @error('Address')
+                                            <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="id_t">ID Terminal</label>
-                                            <input type="text" class="form-control" id="Id_Terminal"
-                                                wire:model="Id_Terminal" placeholder="Enter ID Terminal">
-                                            @error('Id_Terminal')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="ad_ip">Adresse IP</label>
-                                            <input type="IP" class="form-control" id="Address_IP"
-                                                wire:model="Address_IP" placeholder="Enter Adresse IP">
-                                            @error('Address_IP')
-                                                <span class="text-danger">{{ $message }}</span>
+                                            <label for="id_t">Commune</label>
+                                            <input type="text" class="form-control" id="Commune"
+                                                   wire:model="Commune" placeholder="Enter Commune">
+                                            @error('Commune')
+                                            <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>

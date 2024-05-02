@@ -23,4 +23,8 @@ Route::get('commercant',CommercantComponent::class);
 Route::get('bureau',BpComponent::class);
 
 
+Route::get('/',function() {
 
+    return view('load');
+
+    });

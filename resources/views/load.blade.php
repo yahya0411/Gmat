@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="{{asset('/plugins/jquery-ui/jquery-ui.min.css')}}">
     <!-- Font Awesome -->
-    <link rel="icon" type="image/png" href="{{asset('icons/logo.png')}}" />
+    <link rel="icon" type="image/png" href="{{asset('logo.png')}}" />
   <title>G-Mat</title>
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -35,7 +35,7 @@
     font-size: 1em;
             }
             body {
-                background-color: #cecece;
+                background-color: #EEE;
 
             }
             .cont {
@@ -64,10 +64,11 @@
     <body>
         <div class="cont">
             <h1 style="color: #003C71">G-Mat</h1>
-            <img class="" src="{{asset('icons/logo-round.png')}}" title="Gestion de parc Informatique" alt="Gestion de parc Informatique" height="120" width="120">
+          <!--  <img class="" src="{{asset('logo-round.png')}}" title="Gestion de parc Informatique" alt="Gestion de parc Informatique" height="120" width="120"><br/> -->
+                        <img class="" src="{{asset('man.png')}}" title="Gestion de parc Informatique" alt="Gestion de parc Informatique">
             <h3>Gestion de parc informatique</h3>
             <h4>UPW Tlemcen</h4>
-            <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+            <!--  <div id="MyClockDisplay" class="clock" onload="showTime()"></div>  -->
 
         </div>
 <!-- ./wrapper -->

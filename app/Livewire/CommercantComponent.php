@@ -7,7 +7,7 @@ use App\Models\Commercant;
 
 class CommercantComponent extends Component
 {
-    public $Denomination, $Activite,$edit_bp, $Rib,$Telephone,$Address,$Etat,$Type,$Commune;
+    public $Denomination, $Activite,$edit_client, $Rib,$Telephone,$Address,$Etat,$Type,$Commune;
 
     public function render()
     {
@@ -51,6 +51,34 @@ class CommercantComponent extends Component
     $this->resetInput();
      $this->dispatch('addclient');
 
+
+    }
+
+    public function editclient($id)
+    {
+        $Commercant = Commercant::findOrFail($id);
+        $this->edit_client = $Commercant->id;
+        $this->Denomination = $Commercant->Denomination;
+        $this->Activite = $Commercant->Activite;
+        $this->Rib = $Commercant->Rib;
+        $this->Telephone = $Commercant->Telephone;
+        $this->Address = $Commercant->Address;
+        $this->Commune = $Commercant->Commune;
+
+        $this->dispatch('fadeModal');
+    }
+    public function deleteclient($id)
+    {
+        Commercant::findOrFail($id)->delete($id);
+        $this->dispatch('deletebp');
+
+    }
+    public function show($id)
+    {
+        $Commercant = Commercant::findOrFail($id);
+
+        return redirect()->route('commercant',['commercant' => $Commercant]);
+        //return view('livewire.bpd-component',['bureau' => $bp])->layout('livewire.layouts.base');
 
     }
 }
