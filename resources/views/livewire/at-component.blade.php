@@ -85,6 +85,14 @@
                             @endif
                         </tbody>
                     </table>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            {{ $commercants->links() }}
+
+                        </div>
+
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>

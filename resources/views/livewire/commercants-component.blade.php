@@ -75,7 +75,8 @@
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info" wire:click.prevent="show({{$commercant->id}})"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-sm btn-success" wire:click.prevent="editclient({{$commercant->id}})"><i class="fa fa-pen"></i></a>
-                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deleteclient({{$commercant->id}})"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-sm btn-danger"     wire:confirm="Are you sure you want to delete this post?"
+                                           wire:click.prevent="deleteclient({{$commercant->id}})"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

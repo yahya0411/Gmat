@@ -14,7 +14,7 @@ class CommercantComponent extends Component
     public function render()
     {
 
-        $commercants = Commercant::all();
+       // $commercants = Commercant::all();
 //return view('livewire.commercants-component',['commercants' => $commercants])->layout('livewire.layouts.base');
 
         return view('livewire.commercants-component', [

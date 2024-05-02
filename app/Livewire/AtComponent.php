@@ -4,14 +4,16 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Commercant;
+use Livewire\WithPagination;
+
 class AtComponent extends \App\Livewire\CommercantComponent {
+
+    use WithPagination;
 
     public function render()
     {
 
-        $commercants = Commercant::where('Type','1')->get();
-
-        return view('livewire.at-component',['commercants' => $commercants])->layout('livewire.layouts.base');
+        return view('livewire.at-component',['commercants' => Commercant::where('Type','1')->paginate(10),])->layout('livewire.layouts.base');
 
     }
 
