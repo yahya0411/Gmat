@@ -19,6 +19,7 @@ use App\Livewire\CommercantComponent;
 */
 
 Route::get('commercant',CommercantComponent::class);
+Route::get('dashboard',\App\Livewire\DashboardComponent::class);
 
 
 Route::get('bureau',BpComponent::class);
