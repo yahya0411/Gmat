@@ -18,7 +18,7 @@ class CommercantComponent extends Component
 //return view('livewire.commercants-component',['commercants' => $commercants])->layout('livewire.layouts.base');
 
         return view('livewire.commercants-component', [
-            'commercants' => Commercant::Paginate(10),
+            'commercants' => Commercant::Paginate(2),
         ])->layout('livewire.layouts.base');
     }
 

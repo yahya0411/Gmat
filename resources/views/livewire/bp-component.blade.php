@@ -24,7 +24,10 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-2 offset-md-10">
+                        <div class="col-md-3">
+                            <img src="ap.png" width="80" height="50" alt="">
+                        </div>
+                        <div class="col-md-2 offset-md-7">
                             <form action="simple-results.html">
                                 <div class="input-group">
                                     <input type="search" class="form-control form-control-md" placeholder="Rechercher ...">

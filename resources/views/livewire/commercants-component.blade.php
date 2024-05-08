@@ -75,7 +75,7 @@
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info" wire:click.prevent="show({{$commercant->id}})"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-sm btn-success" wire:click.prevent="editclient({{$commercant->id}})"><i class="fa fa-pen"></i></a>
-                                        <a class="btn btn-sm btn-danger"     wire:confirm="Are you sure you want to delete this post?"
+                                        <a class="btn btn-sm btn-danger"     wire:confirm="Are you sure you want to delete this client?"
                                            wire:click.prevent="deleteclient({{$commercant->id}})"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
@@ -110,7 +110,7 @@
 <!-- end table bp -->
 <!-- start adding modal bp -->
     <div wire:ignore.self class="modal fade" id="addclient">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xl">+
             <div class="modal-content">
                 <div class="modal-header card-poste">
                     <h4 class="modal-title">Ajouter un client</h4>
