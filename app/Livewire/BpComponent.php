@@ -5,12 +5,14 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Bp;
 use App\Events\HideModalEvent;
+use Livewire\WithPagination;
 
 class BpComponent extends Component
 {
+    use withPagination;
 
     public $Denomination, $Code_Postale,$edit_bp, $Code_Comptable,$Classe,$Ccp,$Id_Marchant,$Id_Terminal,$Address_IP;
-
+   public $search = '';
 
     public function updated($fields)
     {
@@ -121,7 +123,7 @@ class BpComponent extends Component
     }
     public function render()
     {
-        $bureau = Bp::all();
-        return view('livewire.bp-component',['bureaux' => $bureau])->layout('livewire.layouts.base');
+//$bureau = Bp::search($this->search)->paginate(2);
+        return view('livewire.bp-component',['bureaux' => Bp::search($this->search)->paginate(20),])->layout('livewire.layouts.base');
     }
 }

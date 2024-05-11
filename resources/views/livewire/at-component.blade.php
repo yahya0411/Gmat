@@ -30,7 +30,7 @@
                         <div class="col-md-2 offset-md-7">
                             <form action="simple-results.html">
                                 <div class="input-group">
-                                    <input type="search" class="form-control form-control-md" placeholder="Rechercher ...">
+                                    <input type="search" class="form-control form-control-md" wire:model.live.debounce.300ms ="search" placeholder="Rechercher ...">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-md btn-default">
                                             <i class="fa fa-search"></i>
@@ -87,9 +87,8 @@
                     </table>
                     <br>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             {{ $commercants->links() }}
-
                         </div>
 
                     </div>
@@ -173,7 +172,11 @@
                     <div class="modal-footer justify-content-between">
 
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn btn-success">Enregistrer</button>
+                        <button type="submit" class="btn btn-success">
+                            <div wire:loading>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            </div>
+                            Enregistrer</button>
                     </div>
                 </form>
 
@@ -256,7 +259,11 @@
                 <div class="modal-footer justify-content-between">
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                    <button type="submit" class="btn btn-success">
+                        <div wire:loading>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </div>
+                        Enregistrer</button>
                 </div>
             </form>
 

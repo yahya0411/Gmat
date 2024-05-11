@@ -9,11 +9,11 @@ use Livewire\WithPagination;
 class AtComponent extends \App\Livewire\CommercantComponent {
 
     use WithPagination;
-
+  public $search = '';
     public function render()
     {
 
-        return view('livewire.at-component',['commercants' => Commercant::where('Type','1')->paginate(10),])->layout('livewire.layouts.base');
+        return view('livewire.at-component',['commercants' => Commercant::search($this->search)->where('Type','1')->paginate(2),])->layout('livewire.layouts.base');
 
     }
 

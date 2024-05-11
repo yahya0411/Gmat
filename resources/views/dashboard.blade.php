@@ -58,7 +58,7 @@
     <div class="col-md-3 col-sm-6 col-12">
         <div class="small-box bg-gradient-maroon">
             <div class="inner">
-                <h4>150</h4>
+                <h4>{{$bureaux->count()}}</h4>
 
 
                 <h5>Etablisement</h5>

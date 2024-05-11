@@ -25,12 +25,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="ap.png" width="80" height="50" alt="">
                         </div>
                         <div class="col-md-2 offset-md-7">
                             <form action="simple-results.html">
                                 <div class="input-group">
-                                    <input type="search" class="form-control form-control-md" placeholder="Rechercher ...">
+                                    <input type="search" class="form-control form-control-md" wire:model.live.debounce.300ms ="search" placeholder="Rechercher ...">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-md btn-default">
                                             <i class="fa fa-search"></i>
@@ -48,7 +47,6 @@
                                 <th>Code Postale</th>
                                 <th>Code Comptable</th>
                                 <th>CCP</th>
-                                <th>ID Marchant</th>
                                 <th>ID Terminal</th>
                                 <th>IP</th>
                                 <th>Action</th>
@@ -64,13 +62,12 @@
                                     <td>{{ $bureau->Code_Postale }}</td>
                                     <td>{{ $bureau->Code_Comptable }}</td>
                                     <td>{{ $bureau->Ccp }}</td>
-                                    <td>{{ $bureau->Id_Marchant }}</td>
                                     <td>{{ $bureau->Id_Terminal }}</td>
                                     <td>{{ $bureau->Address_IP }}</td>
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info" wire:click.prevent="show({{$bureau->id}})"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$bureau->id}})"><i class="fa fa-pen"></i></a>
-                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deletebps({{$bureau->id}})"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deletebp({{$bureau->id}})"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -81,6 +78,14 @@
                             @endif
                         </tbody>
                     </table>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ $bureaux->links() }}
+
+                        </div>
+
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -208,7 +213,11 @@
                     <div class="modal-footer justify-content-between">
 
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn btn-success">Enregistrer</button>
+                        <button type="submit" class="btn btn-success">
+                            <div wire:loading>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            </div>
+                            Enregistrer</button>
                     </div>
                 </form>
 
@@ -338,7 +347,11 @@
                 <div class="modal-footer justify-content-between">
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                    <button type="submit" class="btn btn-success">
+                        <div wire:loading>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </div>
+                        Enregistrer</button>
                 </div>
             </form>
 

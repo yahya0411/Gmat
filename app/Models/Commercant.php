@@ -9,4 +9,9 @@ class Commercant extends Model
 {
     use HasFactory;
     protected $table = 'ap_clients';
+
+    public function scopeSearch($query,$search): void
+    {
+        $query->where('Denomination','like',"%{$search}%")->orWhere('Activite','like',"%{$search}%");
+    }
 }

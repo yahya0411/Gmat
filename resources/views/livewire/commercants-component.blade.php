@@ -10,6 +10,9 @@
 
                 text-transform: none
             }
+            .small .text-muted {
+                visibility: hidden;
+            }
         </style>
     @endpush
 
@@ -95,7 +98,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-4">
-                            {{ $commercants->links() }}
+                            {{ $commercants->links(data: ['scrollTo' => '#paginated-posts']) }}
 
                         </div>
 
@@ -209,7 +212,11 @@
                     <div class="modal-footer justify-content-between">
 
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn btn-success">Enregistrer</button>
+                        <button type="submit" class="btn btn-success">
+                            <div wire:loading>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            </div>
+                            Enregistrer</button>
                     </div>
                 </form>
 
@@ -318,7 +325,11 @@
                 <div class="modal-footer justify-content-between">
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                    <button type="submit" class="btn btn-success">
+                        <div wire:loading>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </div>
+                        Enregistrer</button>
                 </div>
             </form>
 
