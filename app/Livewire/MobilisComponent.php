@@ -69,7 +69,7 @@ class MobilisComponent extends \App\Livewire\CommercantComponent {
         $Commercant->Address = $this->Address;
         $Commercant->Commune = $this->Commune;
         $Commercant->Etat = 0;
-        $Commercant->Type = 1;
+        $Commercant->Type = 2;
         $Commercant->save();
 
         $this->resetInput();

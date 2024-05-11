@@ -6,9 +6,10 @@ use Livewire\Component;
 use App\Models\Commercant;
 use Livewire\WithPagination;
 
-class CommercantComponent extends Component
+class EmsComponent extends Component
 {
     use WithPagination;
+    public $search ='';
     public $Denomination, $Activite,$edit_client, $Rib,$Telephone,$Address,$Etat,$Type,$Commune;
 
     public function render()
@@ -17,9 +18,7 @@ class CommercantComponent extends Component
        // $commercants = Commercant::all();
 //return view('livewire.commercants-component',['commercants' => $commercants])->layout('livewire.layouts.base');
 
-        return view('livewire.commercants-component', [
-            'commercants' => Commercant::Paginate(10),
-        ])->layout('livewire.layouts.base');
+        return view('livewire.ems-component', ['commercants' => Commercant::search($this->search)->where('Type','3')->paginate(10),])->layout('livewire.layouts.base');
     }
 
     public function resetInput()
@@ -47,7 +46,7 @@ class CommercantComponent extends Component
      $Commercant->Address = $this->Address;
      $Commercant->Commune = $this->Commune;
      $Commercant->Etat = 0;
-     $Commercant->Type = 0;
+     $Commercant->Type = 3;
      $Commercant->save();
 
     $this->resetInput();
@@ -89,7 +88,7 @@ class CommercantComponent extends Component
         $Commercant->Address = $this->Address;
         $Commercant->Commune = $this->Commune;
         $Commercant->Etat = 0;
-        $Commercant->Type = 0;
+        $Commercant->Type = 3;
         $Commercant->save();
 
         $this->resetInput();

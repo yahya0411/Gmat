@@ -22,13 +22,13 @@
             <div class="card">
                 <div class="card-header card-poste">
                     <a href="#" data-toggle="modal" data-target="#addclient" class="float-right"
-                        style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter un client</a>
+                        style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter une agence ems</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="co.jpg" width="80" height="40" alt="">
+                            <img src="ems.jpg" width="80" height="40" alt="">
                         </div>
                         <div class="col-md-2 offset-md-7">
                             <form action="simple-results.html">
@@ -90,7 +90,7 @@
 
                             @else
                                 <tr>
-                                    <td class="text-center" colspan="9">Aucun Commercant </td>
+                                    <td class="text-center" colspan="9">Aucun Agence EMS trouve </td>
                                 </tr>
                             @endif
                         </tbody>
@@ -116,7 +116,7 @@
         <div class="modal-dialog modal-xl">+
             <div class="modal-content">
                 <div class="modal-header card-poste">
-                    <h4 class="modal-title">Ajouter un client</h4>
+                    <h4 class="modal-title">Ajouter une agence </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -136,23 +136,6 @@
                                                 <input type="text" class="form-control" id="denomination"
                                                     placeholder="Enter nom de client" wire:model="Denomination">
                                                 @error('Denomination')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="Activite">Activite </label>
-                                                <select class="form-control" id="Activite" wire:model="Activite">
-                                                <option value="" selected>Enter la Activite</option>
-                                                <option value="PHARMACIE">PHARMACIE</option>
-                                                <option value="COMMERCANT">COMMERCANT</option>
-                                                <option value="PAPETERIE">PAPETERIE</option>
-                                                <option value="ASSURANCE">ASSURANCE</option>
-                                                <option value="CLINIQUE">CLINIQUE</option>
-                                                <option value="HOTELERIE">HOTELERIE</option>
-                                                </select>
-                                                @error('Activite')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

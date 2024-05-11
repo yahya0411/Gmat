@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\AtComponent;
+use App\Livewire\EmsComponent;
 use App\Livewire\MobilisComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BpController;
@@ -26,6 +27,7 @@ Route::get('dashboard',\App\Livewire\DashboardComponent::class);
 Route::get('bureau',BpComponent::class);
 Route::get('at',AtComponent::class);
 Route::get('mobilis',MobilisComponent::class);
+Route::get('ems',EmsComponent::class);
 
 Route::get('/',function() {
 
