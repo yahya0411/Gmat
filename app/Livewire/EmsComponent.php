@@ -31,20 +31,15 @@ class EmsComponent extends Component
     {
         $this->validate([
             'Denomination' => 'required',
-            'Activite' => 'required',
-            'Rib' => 'required',
             'Telephone' => 'required',
-            'Address' => 'required',
-            'Commune' =>'required'
+            'Address' => 'required'
        ]);
 
      $Commercant = new Commercant();
      $Commercant->Denomination = $this->Denomination;
-     $Commercant->Activite = $this->Activite;
-     $Commercant->Rib = $this->Rib;
+     $Commercant->Activite = "AGENCE COMMERCIELE";
      $Commercant->Telephone = $this->Telephone;
      $Commercant->Address = $this->Address;
-     $Commercant->Commune = $this->Commune;
      $Commercant->Etat = 0;
      $Commercant->Type = 3;
      $Commercant->save();
@@ -60,11 +55,9 @@ class EmsComponent extends Component
         $Commercant = Commercant::findOrFail($id);
         $this->edit_client = $Commercant->id;
         $this->Denomination = $Commercant->Denomination;
-        $this->Activite = $Commercant->Activite;
-        $this->Rib = $Commercant->Rib;
         $this->Telephone = $Commercant->Telephone;
         $this->Address = $Commercant->Address;
-        $this->Commune = $Commercant->Commune;
+
 
         $this->dispatch('fadeModal');
     }
@@ -73,20 +66,14 @@ class EmsComponent extends Component
     {
         $this->validate([
             'Denomination' => 'required',
-            'Activite' => 'required',
-            'Rib' => 'required',
             'Telephone' => 'required',
-            'Address' => 'required',
-            'Commune' =>'required'
+            'Address' => 'required'
         ]);
 
         $Commercant = Commercant::findOrFail($this->edit_client);
         $Commercant->Denomination = $this->Denomination;
-        $Commercant->Activite = $this->Activite;
-        $Commercant->Rib = $this->Rib;
         $Commercant->Telephone = $this->Telephone;
         $Commercant->Address = $this->Address;
-        $Commercant->Commune = $this->Commune;
         $Commercant->Etat = 0;
         $Commercant->Type = 3;
         $Commercant->save();

@@ -140,18 +140,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="Code_postale">Rib</label>
-                                                <input type="text" class="form-control" id="Rib"
-                                                    placeholder="Enter le Rib" wire:model="Rib">
-                                                @error('Rib')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -169,16 +157,6 @@
                                                 <input type="text" class="form-control" id="Address"
                                                     wire:model="Address" placeholder="Enter l'address">
                                                 @error('Address')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="id_t">Commune</label>
-                                                <input type="text" class="form-control" id="Commune"
-                                                    wire:model="Commune" placeholder="Enter Commune">
-                                                @error('Commune')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

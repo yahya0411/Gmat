@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{asset('/plugins/jquery-ui/jquery-ui.min.css')}}">
     <!-- Font Awesome -->
     <link rel="icon" type="image/png" href="{{asset('logo.png')}}" />
-  <title>G-Mat</title>
+  <title>E-Post</title>
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
@@ -63,7 +63,7 @@
     </head>
     <body>
         <div class="cont">
-            <h1 style="color: #003C71">G-Mat</h1>
+            <h1 style="color: #003C71">E-Post</h1>
           <!--  <img class="" src="{{asset('logo-round.png')}}" title="Gestion de parc Informatique" alt="Gestion de parc Informatique" height="120" width="120"><br/> -->
                         <img class="" src="{{asset('man.png')}}" title="Gestion de parc Informatique" alt="Gestion de parc Informatique">
             <h3>Gestion de parc informatique</h3>

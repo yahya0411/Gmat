@@ -36,7 +36,6 @@ class CommercantComponent extends Component
             'Rib' => 'required',
             'Telephone' => 'required',
             'Address' => 'required',
-            'Commune' =>'required'
        ]);
 
      $Commercant = new Commercant();

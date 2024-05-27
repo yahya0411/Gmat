@@ -192,13 +192,65 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="id_t">Commune</label>
-                                                <input type="text" class="form-control" id="Commune"
-                                                    wire:model="Commune" placeholder="Enter Commune">
-                                                @error('Commune')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
+                                                <label for="Communee">Commune</label>
+                                                <select class="form-control select2bs4" wire:model="Commune" id="Communee" style="width: 100%;">
+                                                    <option value="AIN NEHALA">AIN NEHALA</option>
+                                                    <option value="AIN TELLOUT">AIN TELLOUT</option>
+                                                    <option value="BAB EL ASSA">BAB EL ASSA</option>
+                                                    <option value="SOUANI">SOUANI</option>
+                                                    <option value="SOUK TLETA">SOUK TLETA</option>
+                                                    <option value="BENI BOUSSAID">BENI BOUSSAID</option>
+                                                    <option value="SIDI MEDJAHED">SIDI MEDJAHED</option>
+                                                    <option value="AZIAL">AZIAL</option>
+                                                    <option value="BENI BAHDEL">BENI BAHDEL</option>
+                                                    <option value="BENI SNOUS">BENI SNOUS</option>
+                                                    <option value="BENSEKRANE">BENSEKRANE</option>
+                                                    <option value="SIDI ABDELLI">SIDI ABDELLI</option>
+                                                    <option value="AIN FEZZA">AIN FEZZA</option>
+                                                    <option value="AMIEUR">AMIEUR</option>
+                                                    <option value="CHETOUANE">CHETOUANE</option>
+                                                    <option value="AIN FETAH">AIN FETAH</option>
+                                                    <option value="AIN KEBIRA">AIN KEBIRA</option>
+                                                    <option value="FELLAOUCENE">FELLAOUCENE</option>
+                                                    <option value="DAR YAGHMORACEN">DAR YAGHMORACEN</option>
+                                                    <option value="GHAZAOUET">GHAZAOUET</option>
+                                                    <option value="TIENT">TIENT</option>
+                                                    <option value="HENNAYA">HENNAYA</option>
+                                                    <option value="OULED RIYAH">OULED RIYAH</option>
+                                                    <option value="ZENATA">ZENATA</option>
+                                                    <option value="BENI KHELLAD">BENI KHELLAD</option>
+                                                    <option value="HONNAINE">HONNAINE</option>
+                                                    <option value="HAMMAM BOUGHRARA">HAMMAM BOUGHRARA</option>
+                                                    <option value="MAGHNIA">MAGHNIA</option>
+                                                    <option value="AIN GHORABA">AIN GHORABA</option>
+                                                    <option value="BENI MESTER">BENI MESTER</option>
+                                                    <option value="MANSOURAH">MANSOURAH</option>
+                                                    <option value="TERNY">TERNY</option>
+                                                    <option value="M'SIRDA FOUAGA">M'SIRDA FOUAGA</option>
+                                                    <option value="MARSA BEN M'HIDI">MARSA BEN M'HIDI</option>
+                                                    <option value="DJEBALA">DJEBALA</option>
+                                                    <option value="NEDROMA">NEDROMA</option>
+                                                    <option value="BENI SMIEL">BENI SMIEL</option>
+                                                    <option value="OUED LAKHDAR">OUED LAKHDAR</option>
+                                                    <option value="OULED MIMOUN">OULED MIMOUN</option>
+                                                    <option value="AIN YOUCEF">AIN YOUCEF</option>
+                                                    <option value="BENI OUARSOUS">BENI OUARSOUS</option>
+                                                    <option value="EL FEHOUL">EL FEHOUL</option>
+                                                    <option value="REMCHI">REMCHI</option>
+                                                    <option value="SEBBAA CHIOUKH">SEBBAA CHIOUKH</option>
+                                                    <option value="BOUHLOU">BOUHLOU</option>
+                                                    <option value="SABRA">SABRA</option>
+                                                    <option value="EL ARICHA">EL ARICHA</option>
+                                                    <option value="EL GOR">EL GOR</option>
+                                                    <option value="SEBDOU">SEBDOU</option>
+                                                    <option value="BOUIHI">BOUIHI</option>
+                                                    <option value="SIDI DJILLALI">SIDI DJILLALI</option>
+                                                    <option value="TLEMCEN">TLEMCEN</option>
+                                                </select>
                                             </div>
+                                            @error('Commune')
+                                            <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -341,7 +393,10 @@
 @script
 <script>
     $(function() {
-
+        $('.select2').select2()
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
         function alerting() {
                             toastr.options = {
                                 "closeButton": true,

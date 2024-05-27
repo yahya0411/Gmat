@@ -3,8 +3,8 @@
     @livewireStyles
 <link rel="stylesheet" href="/plugins/jquery-ui/jquery-ui.min.css">
     <!-- Font Awesome -->
-    <link rel="icon" type="image/png" href="icons/logo.png" />
-  <title>G-Mat</title>
+    <link rel="icon" type="image/png" href="l.png" />
+  <title>E-Post</title>
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="/dist/css/ionicons.min.css">
 
@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
@@ -35,13 +38,13 @@
     </head>
     <body class="sidebar-mini layout-navbar-fixed layout-footer-fixed layout-fixed">
          <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+{{--  <div class="preloader flex-column justify-content-center align-items-center">
     <h1 style="color: #003C71">G-Mat</h1>
     <img class="animation__wobble" src="icons/logo-round.png" alt="Gmat" height="80" width="80">
-  </div>
+  </div>--}}
         <div class="wrapper">
             <div class="flex-column justify-content-center align-items-center" style="height: 0px;">
-                <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60" style="display: none;">
+                <img class="animation__shake" src="logo.png" alt="E-Post" height="60" width="60" style="display: none;">
                 </div>
             <!-- Navbar -->
             <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -82,8 +85,9 @@
             <aside class="main-sidebar sidebar-primary elevation-4 sidebar-dark-Olive">
                 <!-- Brand Logo -->
                 <a href="index3.html" class="brand-link">
-                    <img src="icons/logo-round.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight">G-Mat</span>
+                    <img src="logo-round.png" alt="E-Post" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <span class="brand-text font-weight">
+                        E-Post</span>
                 </a>
 
                 <!-- Sidebar -->
@@ -183,7 +187,7 @@
                                   </li>
                                  <li class="nav-header">Gestion d'etablisements</li>
                                  <li class="nav-item">
-                                    <a href="/bureau" class="nav-link">
+                                    <a href="/bureau" wire:navigate class="nav-link">
                                       <i class="nav-icon fas fa-building"></i>
                                       <p>
                                         Bureau de poste
@@ -208,13 +212,13 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                       <li class="nav-item">
-                                        <a href="/commercant" class="nav-link">
+                                        <a href="/commercant" wire:navigate class="nav-link">
                                           <i class="far fa-circle nav-icon"></i>
                                           <p>Commercant</p>
                                         </a>
                                       </li>
                                       <li class="nav-item">
-                                        <a href="/at" class="nav-link">
+                                        <a href="/at" wire:navigate class="nav-link">
                                           <i class="far fa-circle nav-icon"></i>
                                           <p>Algerie Telecom</p>
                                         </a>
@@ -303,7 +307,7 @@
                  <strong>Tous droits réservés Copyright &copy; @php echo date("Y");@endphp <a href="https://www.poste.dz">Algerie Poste</a>.</strong>
 
                 <div class="float-right d-none d-sm-inline-block">
-                    <b style="color: #003C71">G-Mat</b>
+                    <b style="color: #003C71">E-Post</b>
                 </div>
             </footer>
         </div>
@@ -342,6 +346,7 @@
         <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
         <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
         <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+         <script src="plugins/select2/js/select2.full.min.js"></script>
         <script src="plugins/jszip/jszip.min.js"></script>
         <script src="plugins/pdfmake/pdfmake.min.js"></script>
         <script src="plugins/pdfmake/vfs_fonts.js"></script>

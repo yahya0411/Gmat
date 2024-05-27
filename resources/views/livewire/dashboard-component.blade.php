@@ -1,16 +1,20 @@
 <div class="content">
-
+    <!-- Preloader -->
+      <div class="preloader flex-column justify-content-center align-items-center">
+        <h1 style="color: #003C71">G-Mat</h1>
+        <img class="animation__wobble" src="logo-round.png" alt="Gmat" height="80" width="80">
+      </div>
 <div class="row">
         <div class="col-md-3 col-sm-6 col-12">
             <div class="small-box bg-gradient-lightblue">
                 <div class="inner">
-                    <h4>150</h4>
+                    <h4>15750</h4>
 
 
                     <h5>Materiel Informatique</h5>
                 </div>
                 <div class="icon">
-                    <i class="fas"><img src="{{ asset('icons/pc3.png') }}" alt=""></i>
+                    <i class="fas"><img src="{{ asset('pc3.png') }}" alt=""></i>
                 </div>
                 <a href="#" data-toggle="modal" data-target="#modal-xl" class="small-box-footer">
                     Plus info <i class="fas fa-arrow-circle-right"></i>
@@ -27,7 +31,7 @@
                     <h5>TPE</h5>
                 </div>
                 <div class="icon">
-                    <i class="fas"><img src="{{ asset('icons/tpe.png') }}" alt=""></i>
+                    <i class="fas"><img src="{{ asset('tpe.png') }}" alt=""></i>
                 </div>
                 <a href="#" class="small-box-footer">
                     Plus info <i class="fas fa-arrow-circle-right"></i>
@@ -44,7 +48,7 @@
                     <h5>Consommable</h5>
                 </div>
                 <div class="icon">
-                    <i class="fas"><img src="{{ asset('icons/consommable.png') }}" alt=""></i>
+                    <i class="fas"><img src="{{ asset('consommable.png') }}" alt=""></i>
                 </div>
                 <a href="#" class="small-box-footer">
                     Plus info <i class="fas fa-arrow-circle-right"></i>
@@ -61,7 +65,7 @@
                     <h5>Etablisement</h5>
                 </div>
                 <div class="icon">
-                    <i class="fas"><img src="{{ asset('icons/arrivage.png') }}" alt=""></i>
+                    <i class="fas"><img src="{{ asset('arrivage.png') }}" alt=""></i>
                 </div>
                 <a href="#" class="small-box-footer">
                     Plus info <i class="fas fa-arrow-circle-right"></i>
@@ -124,21 +128,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                            <form action="simple-results.html">
-                                <div class="input-group">
-                                    <input type="search" class="form-control form-control-lg" placeholder="Enter le bureau">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-lg btn-default">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <br/><br/>
                     <div class="card card-primary card-outline card-tabs">
                         <div class="card-header p-0 pt-1 border-bottom-0">
                             <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
@@ -172,7 +161,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/cu.png') }}" alt=""></i></span>
+                                                        src="{{ asset('cu.png') }}" alt=""></i></span>
 
                                                 <div class="info-box-content">
                                                     <span class="info-box-text">Unite Central</span>
@@ -192,7 +181,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/screen.png') }}"
+                                                        src="{{ asset('screen.png') }}"
                                                         alt=""></i></i></span>
 
                                                 <div class="info-box-content">
@@ -212,7 +201,7 @@
                                         </div>
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
-                                                <span class="info-box-icon"><i class="far"> <img src="{{asset('icons/printer.png')}}" alt=""></i></span>
+                                                <span class="info-box-icon"><i class="far"> <img src="{{asset('printer.png')}}" alt=""></i></span>
 
                                                 <div class="info-box-content">
                                                     <span class="info-box-text">Imprimante</span>
@@ -231,7 +220,7 @@
                                         </div>
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
-                                                <span class="info-box-icon"><i class="far "><img src="{{asset('icons/Reader.png')}}" alt=""></i></span>
+                                                <span class="info-box-icon"><i class="far "><img src="{{asset('Reader.png')}}" alt=""></i></span>
 
                                                 <div class="info-box-content">
                                                     <span class="info-box-text">Lecteur</span>
@@ -254,7 +243,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/barecode.png') }}" alt=""></i></span>
+                                                        src="{{ asset('barecode.png') }}" alt=""></i></span>
 
                                                 <div class="info-box-content">
                                                     <span class="info-box-text">Douchette</span>
@@ -274,7 +263,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/tpe.png') }}"
+                                                        src="{{ asset('tpe.png') }}"
                                                         alt=""></i></span>
 
                                                 <div class="info-box-content">
@@ -295,7 +284,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/network.png') }}"
+                                                        src="{{ asset('network.png') }}"
                                                         alt=""></i></span>
 
                                                 <div class="info-box-content">
@@ -316,7 +305,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/network.png') }}"
+                                                        src="{{ asset('network.png') }}"
                                                         alt=""></i></i></span>
 
                                                 <div class="info-box-content">
@@ -341,7 +330,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/firewall.png') }}" alt=""></i></span>
+                                                        src="{{ asset('firewall.png') }}" alt=""></i></span>
 
                                                 <div class="info-box-content">
                                                     <span class="info-box-text">Pare-feu</span>
@@ -361,7 +350,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/file.png') }}"
+                                                        src="{{ asset('file.png') }}"
                                                         alt=""></i></span>
 
                                                 <div class="info-box-content">
@@ -383,7 +372,7 @@
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far">
                                                 <img
-                                                    src="{{ asset('icons/ups.png') }}"
+                                                    src="{{ asset('ups.png') }}"
                                                     alt=""></i>
                                                 </i></span>
 
@@ -426,7 +415,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/barecode.png') }}" alt=""></i></span>
+                                                        src="{{ asset('barecode.png') }}" alt=""></i></span>
 
                                                 <div class="info-box-content">
                                                     <span class="info-box-text">Douchette</span>
@@ -446,7 +435,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/tpe.png') }}"
+                                                        src="{{ asset('tpe.png') }}"
                                                         alt=""></i></span>
 
                                                 <div class="info-box-content">
@@ -467,7 +456,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/network.png') }}"
+                                                        src="{{ asset('network.png') }}"
                                                         alt=""></i></span>
 
                                                 <div class="info-box-content">
@@ -488,7 +477,7 @@
                                         <div class="col-md-3 col-sm-6 col-12">
                                             <div class="info-box bg-navy">
                                             <span class="info-box-icon"><i class="far"><img
-                                                        src="{{ asset('icons/network.png') }}"
+                                                        src="{{ asset('network.png') }}"
                                                         alt=""></i></i></span>
 
                                                 <div class="info-box-content">
@@ -736,7 +725,7 @@
                 <!-- /.info-box-content -->
             </div>
             <div class="info-box mb-3 bg-purple">
-            <span class="info-box-icon"><i class="far"><img src="{{ asset('icons/tpe.png') }}" alt="">
+            <span class="info-box-icon"><i class="far"><img src="{{ asset('tpe.png') }}" alt="">
                 </i></span>
 
                 <div class="info-box-content">
