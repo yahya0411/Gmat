@@ -12,6 +12,6 @@ class Commercant extends Model
 
     public function scopeSearch($query,$search): void
     {
-        $query->where('Denomination','like',"%{$search}%")->orWhere('Activite','like',"%{$search}%");
+        $query->where('Denomination','like',"%{$search}%")->orWhere('Activite','like',"%{$search}%")->orWhere('Telephone','like',"%{$search}%");
     }
 }

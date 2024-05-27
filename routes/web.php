@@ -28,6 +28,7 @@ Route::get('bureau',BpComponent::class);
 Route::get('at',AtComponent::class);
 Route::get('mobilis',MobilisComponent::class);
 Route::get('ems',EmsComponent::class);
+Route::get('sntf',\App\Livewire\SntfComponent::class);
 
 Route::get('/',function() {
 

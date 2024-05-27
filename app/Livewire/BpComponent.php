@@ -11,7 +11,7 @@ class BpComponent extends Component
 {
     use withPagination;
 
-    public $Denomination, $Code_Postale,$edit_bp, $Code_Comptable,$Classe,$Ccp,$Id_Marchant,$Id_Terminal,$Address_IP;
+    public $Denomination, $Code_Postale,$edit_bp, $Code_Comptable,$Classe,$Ccp,$Id_Marchant,$Id_Terminal,$Address_IP,$Telephone;
    public $search = '';
 
     public function updated($fields)
@@ -29,7 +29,7 @@ class BpComponent extends Component
     }
     public function resetInput()
     {
-        $this->reset(['Denomination','Code_Postale','Code_Comptable','Classe','Ccp','Id_Marchant','Id_Terminal','Address_IP']);
+        $this->reset(['Denomination','Code_Postale','Code_Comptable','Classe','Ccp','Id_Marchant','Id_Terminal','Address_IP',"Telephone"]);
 
     }
 
@@ -53,6 +53,7 @@ class BpComponent extends Component
      $bp->Id_Marchant = $this->Id_Marchant;
      $bp->Id_Terminal = $this->Id_Terminal;
      $bp->Address_IP = $this->Address_IP;
+     $bp->Telephone = $this->Telephone;
      $bp->Type = 0;
 
      $bp->save();
@@ -82,6 +83,7 @@ class BpComponent extends Component
      $bp->Id_Marchant = $this->Id_Marchant;
      $bp->Id_Terminal = $this->Id_Terminal;
      $bp->Address_IP = $this->Address_IP;
+     $bp->Telephone = $this->Telephone;
      $bp->Type = 0;
 
      $bp->save();
@@ -103,7 +105,7 @@ class BpComponent extends Component
         $this->Id_Marchant = $bp->Id_Marchant;
         $this->Id_Terminal = $bp->Id_Terminal;
         $this->Address_IP = $bp->Address_IP;
-
+  $this->Telephone= $bp->Telephone;
       $this->dispatch('fadeModal');
     }
 
@@ -117,8 +119,8 @@ class BpComponent extends Component
     {
         $bp = Bp::findOrFail($id);
 
-        return redirect()->route('bps',['bureau' => $bp]);
-        //return view('livewire.bpd-component',['bureau' => $bp])->layout('livewire.layouts.base');
+        $this->dispatch('showbp');
+
 
     }
     public function render()

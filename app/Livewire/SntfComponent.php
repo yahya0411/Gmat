@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Commercant;
 use Livewire\WithPagination;
 
-class CommercantComponent extends Component
+class SntfComponent extends Component
 {
     use WithPagination;
     public $search ='';
@@ -15,8 +15,10 @@ class CommercantComponent extends Component
     public function render()
     {
 
-        return view('livewire.commercants-component', ['commercants' => Commercant::search($this->search)->where('Type','0')->paginate(15),])->layout('livewire.layouts.base');
+       // $commercants = Commercant::all();
+//return view('livewire.commercants-component',['commercants' => $commercants])->layout('livewire.layouts.base');
 
+        return view('livewire.sntf-component', ['commercants' => Commercant::search($this->search)->where('Type','4')->paginate(1),])->layout('livewire.layouts.base');
     }
 
     public function resetInput()
@@ -29,21 +31,17 @@ class CommercantComponent extends Component
     {
         $this->validate([
             'Denomination' => 'required',
-            'Activite' => 'required',
-            'Rib' => 'required',
             'Telephone' => 'required',
-            'Address' => 'required',
+            'Address' => 'required'
        ]);
 
      $Commercant = new Commercant();
      $Commercant->Denomination = $this->Denomination;
-     $Commercant->Activite = $this->Activite;
-     $Commercant->Rib = $this->Rib;
+     $Commercant->Activite = "AGENCE COMMERCIELE";
      $Commercant->Telephone = $this->Telephone;
      $Commercant->Address = $this->Address;
-     $Commercant->Commune = $this->Commune;
      $Commercant->Etat = 0;
-     $Commercant->Type = 0;
+     $Commercant->Type = 4;
      $Commercant->save();
 
     $this->resetInput();
@@ -57,11 +55,9 @@ class CommercantComponent extends Component
         $Commercant = Commercant::findOrFail($id);
         $this->edit_client = $Commercant->id;
         $this->Denomination = $Commercant->Denomination;
-        $this->Activite = $Commercant->Activite;
-        $this->Rib = $Commercant->Rib;
         $this->Telephone = $Commercant->Telephone;
         $this->Address = $Commercant->Address;
-        $this->Commune = $Commercant->Commune;
+
 
         $this->dispatch('fadeModal');
     }
@@ -70,20 +66,14 @@ class CommercantComponent extends Component
     {
         $this->validate([
             'Denomination' => 'required',
-            'Activite' => 'required',
-            'Rib' => 'required',
             'Telephone' => 'required',
-            'Address' => 'required',
-            'Commune' =>'required'
+            'Address' => 'required'
         ]);
 
         $Commercant = Commercant::findOrFail($this->edit_client);
         $Commercant->Denomination = $this->Denomination;
-        $Commercant->Activite = $this->Activite;
-        $Commercant->Rib = $this->Rib;
         $Commercant->Telephone = $this->Telephone;
         $Commercant->Address = $this->Address;
-        $Commercant->Commune = $this->Commune;
         $Commercant->Etat = 0;
         $Commercant->save();
 

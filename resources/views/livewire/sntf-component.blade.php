@@ -22,13 +22,13 @@
             <div class="card">
                 <div class="card-header card-poste">
                     <a href="#" data-toggle="modal" data-target="#addclient" class="float-right"
-                        style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter une agence ems</a>
+                        style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter une agence sntf</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="ems.jpg" width="80" height="40" alt="">
+                            <img src="sntf.png" width="80" height="40" alt="">
                         </div>
                         <div class="col-md-2 offset-md-7">
                             <form action="simple-results.html">
@@ -49,10 +49,8 @@
                                 <th>#</th>
                                 <th>NOM</th>
                                 <th>Activite</th>
-                                <th>RIB</th>
                                 <th>Telephone</th>
                                 <th>Address</th>
-                                <th>Commune</th>
                                 <th>Etat</th>
                                 <th>Action</th>
                             </tr>
@@ -65,10 +63,8 @@
                                     <td>{{ $commercant->id }} / {{substr(date("Y"),-2)}}</td>
                                     <td>{{ $commercant->Denomination }}</td>
                                     <td>{{ $commercant->Activite }}</td>
-                                    <td>{{ $commercant->Rib }}</td>
                                     <td>{{ $commercant->Telephone }}</td>
                                     <td>{{ $commercant->Address }}</td>
-                                    <td>{{ $commercant->Commune }}</td>
 
                                     <td> @if ($commercant->Etat == 0) <span class="badge badge-primary">Insecrit</span> @else
 

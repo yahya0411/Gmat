@@ -194,7 +194,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="ad_ip">Adresse IP</label>
-                                                <input type="IP" class="form-control" id="Address_IP"
+                                                <input type="text" class="form-control" id="Address_IP"
                                                     wire:model="Address_IP" placeholder="Enter Adresse IP">
                                                 @error('Address_IP')
                                                     <span class="text-danger">{{ $message }}</span>
@@ -204,8 +204,49 @@
                                     </div>
 
                                     <!-- /.card-body -->
-
-
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="ad_ip">LAN</label>
+                                                <input type="text" class="form-control" id="Address_IP"
+                                                       wire:model="Address_IP" placeholder="Enter Adresse IP LAN">
+                                                @error('Address_IP')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="ad_ip">WAN</label>
+                                                <input type="text" class="form-control" id="Address_IP"
+                                                       wire:model="Address_IP" placeholder="Enter Adresse IP WAN">
+                                                @error('Address_IP')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="ad_ip">LOOPBACK 0</label>
+                                                <input type="text" class="form-control" id="Address_IP"
+                                                       wire:model="Address_IP" placeholder="Enter Adresse IP LOOPBACK 0">
+                                                @error('Address_IP')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="ad_ip">LOOPBACK 1</label>
+                                                <input type="text" class="form-control" id="Address_IP"
+                                                       wire:model="Address_IP" placeholder="Enter Adresse IP LOOPBACK 1">
+                                                @error('Address_IP')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -359,6 +400,246 @@
     </div>
 </div>
 <!-- ending adding modal bp -->
+
+        <!-- start showing modal bp -->
+        <div wire:ignore.self class="modal fade" id="showbp">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header card-poste">
+                        <h4 class="modal-title">View bureau de poste</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-default card-tabs">
+                                <div class="card-header p-0 pt-1">
+                                    <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Statistique</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Materiels</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Messages</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Settings</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content" id="custom-tabs-one-tabContent">
+                                        <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <h4>Stats1</h4>
+                                                    <b>Denomination</b>: <span class="text-success">Tlemcen RP</span> <br> <b>Class :</b>  <span class="text-success">RP</span><br>
+                                                    <b>Code Postal</b>: <span class="text-success">13000</span> <br> <b>Code Comptable :</b>  <span class="text-success">13100</span><br>
+                                                    <b>Ccp</b>: <span class="text-success">312046</span> <br> <b>N° Telephone :</b>  <span class="text-success">0667331112</span><br>
+
+                                                    <hr>
+                                                    <h4>Reseau </h4>
+                                                    <b>Lan :</b> <span class="text-primary">10.77.1.0</span> <br> <b>Wan :</b>  <span class="text-primary">10.205.1.1</span><br>
+                                                    <b>Loopback 0 :</b> <span class="text-primary">10.77.1.0</span> <br> <b>Loopback 1 :</b>  <span class="text-primary">10.205.1.1</span><br>
+
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4>Stats2</h4>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Ecran</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Imprimante</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="info-box">
+                                                                <span class="info-box-icon"><img src="firewall.png" alt=""></span>
+
+                                                                <div class="info-box-content">
+                                                                    <span class="info-box-text">Unite Central</span>
+                                                                    <span class="info-box-number">1,410</span>
+                                                                </div>
+                                                                <!-- /.info-box-content -->
+                                                            </div>
+                                                            <!-- /.info-box -->
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                                            <table id="bps" class="table table-bordered table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>Denomination</th>
+                                                    <th>Classe</th>
+                                                    <th>Code Postale</th>
+                                                    <th>Code Comptable</th>
+                                                    <th>CCP</th>
+                                                    <th>ID Terminal</th>
+                                                    <th>IP</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
+                                            Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+                                        </div>
+                                        <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                                            Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- ending showing modal bp -->
 </div>
 @script
 <script>
@@ -389,7 +670,10 @@
                         $('#editbp').modal('show');
                        // alerting();
                     });
-
+        Livewire.on('showbp', () => {
+            $('#showbp').modal('show');
+            // alerting();
+        });
                     Livewire.on('updatebp', () => {
                         alerting();
                         toastr.info('le bureau ete Modifier');
@@ -409,6 +693,9 @@
                         toastr.success('le bureau a ete Ajouter');
 
                     });
+
+
+
     });
 </script>
 @endscript
