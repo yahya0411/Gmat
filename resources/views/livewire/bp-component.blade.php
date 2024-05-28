@@ -659,11 +659,21 @@
                                                     <th>Code Comptable</th>
                                                     <th>CCP</th>
                                                     <th>ID Terminal</th>
-                                                    <th>IP</th>
-                                                    <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                 @foreach($mmm as $m )
+                                                     <tr>
+                                                     <td>{{ $m->Denomination }}</td>
+                                                     <td>{{ $m->Classe }}</td>
+                                                     <td>{{ $m->Code_Postale }}</td>
+                                                     <td>{{ $m->Code_Comptable }}</td>
+                                                     <td>{{ $m->Ccp }}</td>
+                                                     <td>{{ $m->Id_Terminal }}</td>
+                                                     </tr>
+                                                 @endforeach
+
                                                 </tbody>
                                             </table>
                                         </div>

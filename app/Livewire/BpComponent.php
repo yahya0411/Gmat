@@ -11,7 +11,7 @@ class BpComponent extends Component
 {
     use withPagination;
 
-    public $Denomination, $Code_Postale,$edit_bp, $Code_Comptable,$Classe,$Ccp,$Id_Marchant,$Id_Terminal,$Telephone,$Lan,$Wan,$Loopback0,$Loopback1;
+    public $Denomination, $Code_Postale,$edit_bp, $Code_Comptable,$Classe,$Ccp,$Id_Marchant,$Id_Terminal,$Telephone,$Lan,$Wan,$Loopback0,$Loopback1,$materiels;
    public $search = '';
 
     public function updated($fields)
@@ -127,6 +127,7 @@ class BpComponent extends Component
     public function show($id)
     {
         $bp = Bp::findOrFail($id);
+        $this->materiels = Bp::all();
         $this->edit_bp = $bp->id;
         $this->Denomination = $bp->Denomination;
         $this->Code_Postale = $bp->Code_Postale;
@@ -140,13 +141,14 @@ class BpComponent extends Component
         $this->Loopback0 = $bp->Loopback0;
         $this->Loopback1 = $bp->Loopback1;
         $this->Telephone= $bp->Telephone;
-        $this->dispatch('showbp');
+    //    dd(Bp::all());
+        $this->dispatch('showbp',title: Bp::all());
 
 
     }
     public function render()
     {
 //$bureau = Bp::search($this->search)->paginate(2);
-        return view('livewire.bp-component',['bureaux' => Bp::search($this->search)->paginate(20),])->layout('livewire.layouts.base');
+        return view('livewire.bp-component',['bureaux' => Bp::search($this->search)->paginate(20),'mmm' => Bp::where('id','=',$this->edit_bp)->get()])->layout('livewire.layouts.base');
     }
 }
