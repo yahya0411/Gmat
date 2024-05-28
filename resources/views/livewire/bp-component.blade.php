@@ -104,7 +104,6 @@
                 </div>
                 <form wire:submit.prevent="storebp">
                     <div class="modal-body">
-
                         <div class="row">
 
                             <div class="col-md-12">
@@ -193,10 +192,10 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="ad_ip">Adresse IP</label>
-                                                <input type="text" class="form-control" id="Address_IP"
-                                                    wire:model="Address_IP" placeholder="Enter Adresse IP">
-                                                @error('Address_IP')
+                                                <label for="Telephone">Telephone</label>
+                                                <input type="text" class="form-control" id="Telephone"
+                                                    wire:model="Telephone" placeholder="Enter Telephone">
+                                                @error('Telephone')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -205,33 +204,34 @@
 
                                     <!-- /.card-body -->
                                     <hr>
+                                    <h5> <i class="fa fa-network-wired"></i> Les addreses Reseau</h5><br>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="ad_ip">LAN</label>
-                                                <input type="text" class="form-control" id="Address_IP"
-                                                       wire:model="Address_IP" placeholder="Enter Adresse IP LAN">
-                                                @error('Address_IP')
+                                                <label for="Lan">LAN</label>
+                                                <input type="text" class="form-control" id="Lan"
+                                                       wire:model="Lan" placeholder="Enter Adresse IP Lan">
+                                                @error('Lan')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="ad_ip">WAN</label>
-                                                <input type="text" class="form-control" id="Address_IP"
-                                                       wire:model="Address_IP" placeholder="Enter Adresse IP WAN">
-                                                @error('Address_IP')
+                                                <label for="Wan">WAN</label>
+                                                <input type="text" class="form-control" id="Wan"
+                                                       wire:model="Wan" placeholder="Enter Adresse Wan">
+                                                @error('Wan')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="ad_ip">LOOPBACK 0</label>
-                                                <input type="text" class="form-control" id="Address_IP"
-                                                       wire:model="Address_IP" placeholder="Enter Adresse IP LOOPBACK 0">
-                                                @error('Address_IP')
+                                                <label for="Loopback0">LOOPBACK 0</label>
+                                                <input type="text" class="form-control" id="Loopback0"
+                                                       wire:model="Loopback0" placeholder="Enter Adresse IP Loopback 0">
+                                                @error('Loopback0')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -240,8 +240,8 @@
                                             <div class="form-group">
                                                 <label for="ad_ip">LOOPBACK 1</label>
                                                 <input type="text" class="form-control" id="Address_IP"
-                                                       wire:model="Address_IP" placeholder="Enter Adresse IP LOOPBACK 1">
-                                                @error('Address_IP')
+                                                       wire:model="Loopback1" placeholder="Enter Adresse IP Loopback 1">
+                                                @error('Loopback1')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -267,138 +267,180 @@
     </div>
     <!-- ending adding modal bp -->
 
-<!-- start adding modal bp -->
-<div wire:ignore.self class="modal fade" id="editbp">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header card-poste">
-                <h4 class="modal-title">Modifier bureau de poste</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form wire:submit.prevent="editbpdata">
-                <div class="modal-body">
+        <div wire:ignore.self class="modal fade" id="editbp">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header card-poste">
+                        <h4 class="modal-title">Ajouter bureau de poste</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form wire:submit.prevent="editbpdata">
+                        <div class="modal-body">
 
-                    <div class="row">
+                            <div class="row">
 
-                        <div class="col-md-12">
+                                <div class="col-md-12">
 
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="denomination">Denomination</label>
-                                            <input type="text" class="form-control" id="denomination"
-                                                placeholder="Enter nom de bureau" wire:model="Denomination">
-                                            @error('Denomination')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="denomination">Denomination</label>
+                                                    <input type="text" class="form-control" id="denomination"
+                                                           placeholder="Enter nom de bureau" wire:model="Denomination">
+                                                    @error('Denomination')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="classe">Classe </label>
+                                                    <select class="form-control" id="Classe" wire:model="Classe">
+                                                        <option value="" selected>Enter la classe</option>
+                                                        <option value="RP">RP</option>
+                                                        <option value="HC">HC</option>
+                                                        <option value="R1">R1</option>
+                                                        <option value="R2">R2</option>
+                                                        <option value="R3">R3</option>
+                                                        <option value="R4">R4</option>
+                                                        <option value="RD">RD</option>
+                                                    </select>
+                                                    @error('Classe')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Code_postale">Code Postale</label>
+                                                    <input type="text" class="form-control" id="Code_Postale"
+                                                           placeholder="Enter code postale" wire:model="Code_Postale">
+                                                    @error('Code_Postale')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="code_comptable">Code Comptable</label>
+                                                    <input type="text" class="form-control" id="CodeC"
+                                                           wire:model="Code_Comptable" placeholder="Entrer code comptable">
+                                                    @error('Code_Comptable')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="classe">Classe </label>
-                                            <select class="form-control" id="classe" wire:model="Classe">
-                                                <option value="" selected>Enter la classe</option>
-                                                <option value="RP">RP</option>
-                                                <option value="HC">HC</option>
-                                                <option value="R1">R1</option>
-                                                <option value="R2">R2</option>
-                                                <option value="R3">R3</option>
-                                                <option value="R4">R4</option>
-                                                <option value="RD">RD</option>
-                                            </select>
-                                            @error('Classe')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="ccp_bureau">CCP</label>
+                                                    <input type="text" class="form-control" id="Ccp"
+                                                           wire:model="Ccp" placeholder="Enter ccp de bureau">
+                                                    @error('Ccp')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="id_m">ID Marchant</label>
+                                                    <input type="text" class="form-control" id="Id_Marchant"
+                                                           wire:model="Id_Marchant" placeholder="Enter ID Marchant">
+                                                    @error('Id_Marchant')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="id_t">ID Terminal</label>
+                                                    <input type="text" class="form-control" id="Id_Terminal"
+                                                           wire:model="Id_Terminal" placeholder="Enter ID Terminal">
+                                                    @error('Id_Terminal')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Telephone">Telephone</label>
+                                                    <input type="text" class="form-control" id="Telephone"
+                                                           wire:model="Telephone" placeholder="Enter Telephone">
+                                                    @error('Telephone')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="code_postale">Code Postale</label>
-                                            <input type="text" class="form-control" id="Code_Postale"
-                                                placeholder="Enter code postale" wire:model="Code_Postale">
-                                            @error('Code_Postale')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="code_comptable">Code Comptable</label>
-                                            <input type="text" class="form-control" id="Code_Comptable"
-                                                wire:model="Code_Comptable" placeholder="Entrer code comptable">
-                                            @error('Code_Comptable')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+
+                                        <!-- /.card-body -->
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Lan">LAN</label>
+                                                    <input type="text" class="form-control" id="Lan"
+                                                           wire:model="Lan" placeholder="Enter Adresse IP Lan">
+                                                    @error('Lan')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Wan">WAN</label>
+                                                    <input type="text" class="form-control" id="Wan"
+                                                           wire:model="Wan" placeholder="Enter Adresse Wan">
+                                                    @error('Wan')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Loopback0">LOOPBACK 0</label>
+                                                    <input type="text" class="form-control" id="Loopback0"
+                                                           wire:model="Loopback0" placeholder="Enter Adresse IP Loopback 0">
+                                                    @error('Loopback0')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="ad_ip">LOOPBACK 1</label>
+                                                    <input type="text" class="form-control" id="Address_IP"
+                                                           wire:model="Loopback1" placeholder="Enter Adresse IP Loopback 1">
+                                                    @error('Address_IP')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="ccp_bureau">CCP</label>
-                                            <input type="text" class="form-control" id="Ccp"
-                                                wire:model="Ccp" placeholder="Enter ccp de bureau">
-                                            @error('Ccp')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="id_m">ID Marchant</label>
-                                            <input type="text" class="form-control" id="Id_Marchant"
-                                                wire:model="Id_Marchant" placeholder="Enter ID Marchant">
-                                            @error('Id_Marchant')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="id_t">ID Terminal</label>
-                                            <input type="text" class="form-control" id="Id_Terminal"
-                                                wire:model="Id_Terminal" placeholder="Enter ID Terminal">
-                                            @error('Id_Terminal')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="ad_ip">Adresse IP</label>
-                                            <input type="IP" class="form-control" id="Address_IP"
-                                                wire:model="Address_IP" placeholder="Enter Adresse IP">
-                                            @error('Address_IP')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- /.card-body -->
-
-
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-between">
+                        <div class="modal-footer justify-content-between">
 
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-success">
-                        <div wire:loading>
-                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-success">
+                                <div wire:loading>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                </div>
+                                Enregistrer</button>
                         </div>
-                        Enregistrer</button>
-                </div>
-            </form>
+                    </form>
 
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+<!-- start adding modal bp -->
+
 <!-- ending adding modal bp -->
 
         <!-- start showing modal bp -->
@@ -436,15 +478,14 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <h4>Stats1</h4>
-                                                    <b>Denomination</b>: <span class="text-success">Tlemcen RP</span> <br> <b>Class :</b>  <span class="text-success">RP</span><br>
-                                                    <b>Code Postal</b>: <span class="text-success">13000</span> <br> <b>Code Comptable :</b>  <span class="text-success">13100</span><br>
-                                                    <b>Ccp</b>: <span class="text-success">312046</span> <br> <b>N° Telephone :</b>  <span class="text-success">0667331112</span><br>
+                                                    <b>Denomination</b>: <span class="text-success" >{{$Denomination}}</span><br> <b>Class :</b>  <span class="text-success">{{$Classe}}</span><br>
+                                                    <b>Code Postal</b>: <span class="text-success">{{$Code_Postale}}</span> <br> <b>Code Comptable :</b>  <span class="text-success">{{$Code_Comptable}}</span><br>
+                                                    <b>Ccp</b>: <span class="text-success">{{$Ccp}}</span> <br> <b>N° Telephone :</b>  <span class="text-success">{{$Telephone}}</span><br>
 
                                                     <hr>
                                                     <h4>Reseau </h4>
                                                     <b>Lan :</b> <span class="text-primary">10.77.1.0</span> <br> <b>Wan :</b>  <span class="text-primary">10.205.1.1</span><br>
                                                     <b>Loopback 0 :</b> <span class="text-primary">10.77.1.0</span> <br> <b>Loopback 1 :</b>  <span class="text-primary">10.205.1.1</span><br>
-
                                                 </div>
                                                 <div class="col-md-8">
                                                     <h4>Stats2</h4>
@@ -608,6 +649,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                                            <h1>{{$edit_bp}}</h1>
                                             <table id="bps" class="table table-bordered table-striped">
                                                 <thead>
                                                 <tr>

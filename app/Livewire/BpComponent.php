@@ -11,7 +11,7 @@ class BpComponent extends Component
 {
     use withPagination;
 
-    public $Denomination, $Code_Postale,$edit_bp, $Code_Comptable,$Classe,$Ccp,$Id_Marchant,$Id_Terminal,$Address_IP,$Telephone;
+    public $Denomination, $Code_Postale,$edit_bp, $Code_Comptable,$Classe,$Ccp,$Id_Marchant,$Id_Terminal,$Telephone,$Lan,$Wan,$Loopback0,$Loopback1;
    public $search = '';
 
     public function updated($fields)
@@ -23,13 +23,13 @@ class BpComponent extends Component
         'Classe' => 'required',
         'Ccp' => 'required',
 
-        'Address_IP'=> 'required'
+        'Telephone'=> 'required'
         ]);
 
     }
     public function resetInput()
     {
-        $this->reset(['Denomination','Code_Postale','Code_Comptable','Classe','Ccp','Id_Marchant','Id_Terminal','Address_IP',"Telephone"]);
+        $this->reset(['Denomination','Code_Postale','Code_Comptable','Classe','Ccp','Id_Marchant','Id_Terminal','Lan',"Wan","Loopback0","Loopback1","Telephone"]);
 
     }
 
@@ -41,7 +41,7 @@ class BpComponent extends Component
             'Code_Comptable' => 'required',
             'Classe' => 'required',
             'Ccp' => 'required',
-            'Address_IP' => 'required'
+            'Telephone' => 'required'
        ]);
 
      $bp = new Bp();
@@ -52,7 +52,10 @@ class BpComponent extends Component
      $bp->Classe = $this->Classe;
      $bp->Id_Marchant = $this->Id_Marchant;
      $bp->Id_Terminal = $this->Id_Terminal;
-     $bp->Address_IP = $this->Address_IP;
+    $bp->Lan = $this->Lan;
+    $bp->Wan = $this->Wan;
+    $bp->Loopback0 = $this->Loopback0;
+    $bp->Loopback1 = $this->Loopback1;
      $bp->Telephone = $this->Telephone;
      $bp->Type = 0;
 
@@ -71,7 +74,7 @@ class BpComponent extends Component
             'Code_Comptable' => 'required',
             'Classe' => 'required',
             'Ccp' => 'required',
-            'Address_IP' => 'required'
+            'Telephone' => 'required'
        ]);
 
     $bp = Bp::findOrFail($this->edit_bp);
@@ -82,7 +85,10 @@ class BpComponent extends Component
      $bp->Classe = $this->Classe;
      $bp->Id_Marchant = $this->Id_Marchant;
      $bp->Id_Terminal = $this->Id_Terminal;
-     $bp->Address_IP = $this->Address_IP;
+     $bp->Lan = $this->Lan;
+     $bp->Wan = $this->Wan;
+     $bp->Loopback0 = $this->Loopback0;
+     $bp->Loopback1 = $this->Loopback1;
      $bp->Telephone = $this->Telephone;
      $bp->Type = 0;
 
@@ -104,8 +110,11 @@ class BpComponent extends Component
         $this->Classe = $bp->Classe;
         $this->Id_Marchant = $bp->Id_Marchant;
         $this->Id_Terminal = $bp->Id_Terminal;
-        $this->Address_IP = $bp->Address_IP;
-  $this->Telephone= $bp->Telephone;
+        $this->Lan = $bp->Lan;
+        $this->Wan = $bp->Wan;
+        $this->Loopback0 = $bp->Loopback0;
+        $this->Loopback1 = $bp->Loopback1;
+        $this->Telephone= $bp->Telephone;
       $this->dispatch('fadeModal');
     }
 
@@ -118,7 +127,19 @@ class BpComponent extends Component
     public function show($id)
     {
         $bp = Bp::findOrFail($id);
-
+        $this->edit_bp = $bp->id;
+        $this->Denomination = $bp->Denomination;
+        $this->Code_Postale = $bp->Code_Postale;
+        $this->Code_Comptable = $bp->Code_Comptable;
+        $this->Ccp = $bp->Ccp;
+        $this->Classe = $bp->Classe;
+        $this->Id_Marchant = $bp->Id_Marchant;
+        $this->Id_Terminal = $bp->Id_Terminal;
+        $this->Lan = $bp->Lan;
+        $this->Wan = $bp->Wan;
+        $this->Loopback0 = $bp->Loopback0;
+        $this->Loopback1 = $bp->Loopback1;
+        $this->Telephone= $bp->Telephone;
         $this->dispatch('showbp');
 
 
