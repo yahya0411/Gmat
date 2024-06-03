@@ -8,7 +8,7 @@ use App\Http\Controllers\BpController;
 use App\Http\Controllers\DashboardController;
 use App\Livewire\BpComponent;
 use App\Livewire\CommercantComponent;
-
+use App\Livewire\ArrivageComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,15 +23,26 @@ use App\Livewire\CommercantComponent;
 Route::get('commercant',CommercantComponent::class);
 Route::get('dashboard',\App\Livewire\DashboardComponent::class);
 
-
+// Etablissement
 Route::get('bureau',BpComponent::class);
 Route::get('at',AtComponent::class);
+
+// client
 Route::get('mobilis',MobilisComponent::class);
 Route::get('ems',EmsComponent::class);
 Route::get('sntf',\App\Livewire\SntfComponent::class);
+// Materiel
+Route::get('arrivage',ArrivageComponent::class);
 
 Route::get('/',function() {
 
     return view('load');
 
     });
+
+Route::get('arr/{id}',function() {
+
+    //dd($id);
+  return view('livewire.commercants-component')->layout('livewire.layouts.base');
+
+})->name('arr');

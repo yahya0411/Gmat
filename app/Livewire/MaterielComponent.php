@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Bp;
 use App\Events\HideModalEvent;
 
-class BpComponent extends Component
+class MaterielComponent extends Component
 {
 
     public $Denomination, $code_postale,$edit_bp, $Code_Comptable,$Classe,$ccp_bureau,$Id_Marchant,$Id_Terminal,$Address_IP;
@@ -117,6 +117,6 @@ class BpComponent extends Component
     public function render()
     {
         $bureau = Bp::all();
-        return view('livewire.bp-component',['bureaux' => $bureau])->layout('livewire.layouts.base');
+        return view('livewire.materiel-component',['bureaux' => $bureau])->layout('livewire.layouts.base');
     }
 }
