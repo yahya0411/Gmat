@@ -18,6 +18,7 @@
 
     <!-- table bp -->
     <div wire:ignore.self class="row">
+
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-poste">
@@ -27,21 +28,60 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-2 offset-md-7">
-                            <form action="simple-results.html">
-                                <div class="input-group">
-                                    <input type="search" wire:model.live="search" class="form-control form-control-md" placeholder="Rechercher ...">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-md btn-default">
-                                            <i class="fa fa-search"></i>
-                                        </button>
+                        <div class="col-md-12">
+                            <form wire:submit.prevent="storearrivage">
+                                <div class="modal-body">
+
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="Expediteur">Expediteur </label>
+                                                            <select class="form-control" id="Expediteur" wire:model="Expediteur">
+                                                                <option value="" selected>Enter Expediteur</option>
+                                                                <option value="DIRECTION GENERALE">DIRECTION GENERALE</option>
+                                                                <option value="MAGAZIN CENTRAL">MAGAZIN CENTRAL</option>
+                                                                <option value="AUTRE">AUTRE</option>
+                                                            </select>
+                                                            @error('Expediteur')
+                                                            <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="Date">Date</label>
+                                                            <input type="date" class="form-control" id="Date"
+                                                                   placeholder="Enter le Rib" wire:model="Date">
+                                                            @error('Date')
+                                                            <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <label for="Obs">Observation</label>
+                                                            <textarea id="Obs" wire:model="Obs" class="form-control" rows="3" placeholder="Enter Observation"></textarea>
+                                                            @error('Obs')
+                                                            <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.card-body -->
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
+
                         </div>
-                    </div><br/>
+                    </div>
+                  <br/>
                     <table id="bps" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -64,8 +104,6 @@
 
 
                                     <td style="text-align:center">
-                                        <a class="btn btn-sm btn-info" wire:click.prevent="show({{$arrivage->id}})"><i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-sm btn-success" wire:click.prevent="editclient({{$arrivage->id}})"><i class="fa fa-pen"></i></a>
                                         <a class="btn btn-sm btn-danger" aria-disabled="true"  wire:confirm="Are you sure you want to delete this client?"
                                            wire:click.prevent="deletearrivage({{$arrivage->id}})"><i class="fa fa-trash"></i></a>
                                     </td>

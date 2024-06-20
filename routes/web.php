@@ -2,7 +2,9 @@
 
 use App\Livewire\AtComponent;
 use App\Livewire\EmsComponent;
+use App\Livewire\MaterielComponent;
 use App\Livewire\MobilisComponent;
+use App\Models\Bp;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BpController;
 use App\Http\Controllers\DashboardController;
@@ -33,6 +35,7 @@ Route::get('ems',EmsComponent::class);
 Route::get('sntf',\App\Livewire\SntfComponent::class);
 // Materiel
 Route::get('arrivage',ArrivageComponent::class);
+Route::get('materiel',  MaterielComponent::class);
 
 Route::get('/',function() {
 
@@ -43,6 +46,5 @@ Route::get('/',function() {
 Route::get('arr/{id}',function() {
 
     //dd($id);
-  return view('livewire.commercants-component')->layout('livewire.layouts.base');
 
 })->name('arr');

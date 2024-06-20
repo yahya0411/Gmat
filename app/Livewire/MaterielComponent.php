@@ -2,90 +2,89 @@
 
 namespace App\Livewire;
 
+use App\Models\Materiel;
 use Livewire\Component;
 use App\Models\Bp;
 use App\Events\HideModalEvent;
+use Livewire\WithPagination;
 
 class MaterielComponent extends Component
 {
-
-    public $Denomination, $code_postale,$edit_bp, $Code_Comptable,$Classe,$ccp_bureau,$Id_Marchant,$Id_Terminal,$Address_IP;
+    use WithPagination;
+    public $search ='';
+    public $Designation,$Num_s,$Code_b,$Marque_id,$Modele_id,$Arrivage_id,$Owner_id,$Is_Consomable,$Quantity,$edit_Materiel;
 
 
     public function updated($fields)
     {
         $this->validateonly($fields,[
-        'Denomination' => 'required|min:4',
-        'code_postale' => 'required',
-        'Code_Comptable' => 'required|unique:bps',
-        'Classe' => 'required',
-        'Ccp' => 'required',
-        'Id_Marchant' => 'required',
-        'Id_Terminal' => 'required',
-        'Address_IP'=> 'required'
+        'Designation' => 'required|min:4',
+        'Num_s' => 'required',
+        'Code_b' => 'required|unique:bps',
+        'Marque_id' => 'required',
+        'Modele_id' => 'required',
+        'Owner_id' => 'required',
+        'Is_Consomable' => 'required',
         ]);
 
     }
     public function resetInput()
     {
-        $this->reset(['Denomination','Code_Postale','Code_Comptable','Classe','ccp_bureau','Id_Marchant','Id_Terminal','Address_IP']);
+        $this->reset(['Designation','Num_s','Code_b','Marque_id','Modele_id','Owner_id','Is_Consomable',]);
 
     }
 
-    public function storebp()
+    public function store_materiel()
     {
         $this->validate([
-            'Denomination' => 'required:bps',
-            'Code_Postale' => 'required',
-            'Code_Comptable' => 'required',
-            'Classe' => 'required',
-            'ccp_bureau' => 'required',
-            'Id_Marchant' => 'required',
-            "Id_Terminal" => 'required',
-            'Address_IP' => 'required'
+            'Designation' => 'required|min:4',
+            'Num_s' => 'required',
+            'Code_b' => 'required|unique:bps',
+            'Marque_id' => 'required',
+            'Modele_id' => 'required',
+            'Owner_id' => 'required',
+            'Is_Consomable' => 'required',
        ]);
 
-     $bp = new Bp();
-     $bp->Denomination = $this->Denomination;
-     $bp->Code_Postale = $this->code_postale;
-     $bp->Code_Comptable = $this->Code_Comptable;
-     $bp->Ccp = $this->ccp_bureau;
-     $bp->Classe = $this->Classe;
-     $bp->Id_Marchantarchant = $this->Id_Marchant;
-     $bp->IdT = $this->Id_Terminal;
-     $bp->IpA = $this->Address_IP;
-
-     $bp->save();
+        $Materiel = new Materiel();
+        $Materiel->Designation = $this->Designation;
+        $Materiel->Code_b = $this->Code_b;
+        $Materiel->Num_s = $this->Num_s;
+        $Materiel->Marque_id = $this->Marque_id;
+        $Materiel->Modele_id = $this->Modele_id;
+        $Materiel->Owner_id = $this->Owner_id;
+        $Materiel->Is_Consomable = $this->Is_Consomable;
+        $Materiel->Quantity = $this->Quantity;
+     $Materiel->save();
 
     $this->resetInput();
-     $this->dispatch('addbp');
+     $this->dispatch('addmateriel');
 
 
     }
-    public function editbpdata()
+    public function edit_materiel_data()
     {
         $this->validate([
-            'Denomination' => 'required:bps',
-            'code_postale' => 'required',
-            'Code_Comptable' => 'required',
-            'Classe' => 'required',
-            'ccp_bureau' => 'required',
-            'Id_Marchant' => 'required',
-            "Id_Terminal" => 'required',
-            'Address_IP' => 'required'
+            'Designation' => 'required|min:4',
+            'Num_s' => 'required',
+            'Code_b' => 'required|unique:bps',
+            'Marque_id' => 'required',
+            'Modele_id' => 'required',
+            'Owner_id' => 'required',
+            'Is_Consomable' => 'required',
        ]);
 
-       $bp = Bp::findOrFail($this->edit_bp);
-       $bp->Denomination = $this->Denomination;
-     $bp->Code_Postale = $this->code_postale;
-     $bp->Code_Comptable = $this->Code_Comptable;
-     $bp->Ccp = $this->ccp_bureau;
-     $bp->Classe = $this->Classe;
-     $bp->Id_Marchantarchant = $this->Id_Marchant;
-     $bp->IdT = $this->Id_Terminal;
-     $bp->IpA = $this->Address_IP;
+        $Materiel = Bp::findOrFail($this->edit_Materiel);
+        $Materiel->Designation = $this->Designation;
+        $Materiel->Code_b = $this->Code_b;
+        $Materiel->Num_s = $this->Num_s;
+        $Materiel->Marque_id = $this->Marque_id;
+        $Materiel->Modele_id = $this->Modele_id;
+        $Materiel->Owner_id = $this->Owner_id;
+        $Materiel->Is_Consomable = $this->Is_Consomable;
+        $Materiel->Quantity = $this->Quantity;
 
-     $bp->save();
+        $Materiel->save();
 
     $this->resetInput();
      $this->dispatch('updatebp');
@@ -94,16 +93,15 @@ class MaterielComponent extends Component
     }
     public function editbps($id)
     {
-        $bp = Bp::findOrFail($id);
-        $this->edit_bp = $bp->id;
-        $this->Denomination = $bp->Denomination;
-        $this->code_postale = $bp->Code_Postale;
-        $this->Code_Comptable = $bp->Code_Comptable;
-        $this->ccp_bureau = $bp->Ccp;
-        $this->Classe = $bp->Classe;
-        $this->Id_Marchant = $bp->Id_Marchant;
-        $this->Id_Terminal = $bp->IdT;
-        $this->Address_IP = $bp->IpA;
+        $Materiel = Bp::findOrFail($id);
+        $this->edit_Materiel = $Materiel->id;
+        $this->Designation = $Materiel->Designation;
+        $this->Code_b = $Materiel->Code_b;
+        $this->Num_s = $Materiel->Num_s;
+        $this->Marque_id = $Materiel->Marque_id;
+        $this->Modele_id = $Materiel->Modele_id;
+        $this->Owner_id = $Materiel->Owner_id;
+        $this->Is_Consomable = $Materiel->Is_Consomable;
 
       $this->dispatch('fadeModal');
     }
@@ -116,7 +114,8 @@ class MaterielComponent extends Component
     }
     public function render()
     {
-        $bureau = Bp::all();
-        return view('livewire.materiel-component',['bureaux' => $bureau])->layout('livewire.layouts.base');
+     //   $materiels = Materiel::all();
+     //   return view('livewire.materiel-component',['materiels' => $materiels])->layout('livewire.layouts.base');
+       return view('livewire.materiel-component',['materiels' => Materiel::paginate(20),])->layout('livewire.layouts.base');
     }
 }

@@ -40,44 +40,48 @@
                     <table id="bps" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Denomination</th>
-                                <th>Classe</th>
-                                <th>Code Postale</th>
-                                <th>Code Comptable</th>
-                                <th>CCP</th>
-                                <th>ID Marchant</th>
-                                <th>ID Terminal</th>
-                                <th>IP</th>
-                                <th>Action</th>
+                                <th>Designation</th>
+                                <th>Num Série</th>
+                                <th>Code bien</th>
+                                <th>Marque</th>
+                                <th>Modele</th>
+                                <th>Owner</th>
+                                <th>Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($bureaux->count() > 0)
+                            @if ($materiels->count() > 0)
 
-                            @foreach ($bureaux as $bureau)
+                            @foreach ($materiels as $materiel)
                                 <tr>
-                                    <td>{{ $bureau->Denomination }}</td>
-                                    <td>{{ $bureau->Classe }}</td>
-                                    <td>{{ $bureau->Code_Postale }}</td>
-                                    <td>{{ $bureau->CodeC }}</td>
-                                    <td>{{ $bureau->Ccp }}</td>
-                                    <td>{{ $bureau->IdM }}</td>
-                                    <td>{{ $bureau->IdT }}</td>
-                                    <td>{{ $bureau->IpA }}</td>
+                                    <td>{{ $materiel->Designation }}</td>
+                                    <td>{{ $materiel->Num_s }}</td>
+                                    <td>{{ $materiel->Code_b }}</td>
+                                    <td>{{ $materiel->Marque_id }}</td>
+                                    <td>{{ $materiel->Modele_id }}</td>
+                                    <td>{{ $materiel->Owner_id }}</td>
+                                    <td>{{ $materiel->Quantity }}</td>
                                     <td style="text-align:center">
                                         <a class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$bureau->id}})"><i class="fa fa-pen"></i></a>
-                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deletebp({{$bureau->id}})"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-sm btn-success" wire:click.prevent="editbps({{$materiel->id}})"><i class="fa fa-pen"></i></a>
+                                        <a class="btn btn-sm btn-danger" wire:click.prevent="deletebp({{$materiel->id}})"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
                                 @else
                                 <tr>
-                                    <td class="text-center" colspan="9">Aucun bureau </td>
+                                    <td class="text-center" colspan="9">Aucun Materiel </td>
                                 </tr>
                             @endif
                         </tbody>
                     </table>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ $materiels->links() }}
+                        </div>
+
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
