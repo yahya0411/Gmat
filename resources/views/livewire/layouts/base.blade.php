@@ -339,7 +339,7 @@
         <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
         <!-- Summernote -->
         <script src="plugins/summernote/summernote-bs4.min.js"></script>
-
+         <script src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
         <script src="plugins/datatables/jquery.dataTables.js"></script>
         <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
         <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>

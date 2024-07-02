@@ -18,12 +18,11 @@
 
     <!-- table bp -->
     <div wire:ignore.self class="row">
-
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-poste">
-                    <a href="#" data-toggle="modal" data-target="#addarrivage" class="float-right"
-                        style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter un arrivage</a>
+                    <a href="#" data-toggle="modal" data-target="#addarrivage" class="float-left"
+                        style="color: #f4cc3a; font-weight:bold"> Nouveau arrivage</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -62,15 +61,16 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label for="Obs">Observation</label>
-                                                            <textarea id="Obs" wire:model="Obs" class="form-control" rows="3" placeholder="Enter Observation"></textarea>
-                                                            @error('Obs')
-                                                            <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="btn" style="visibility: hidden">btn</label><br/>
+                                                                <button type="submit" class="btn btn-outline-success btn-block">
+                                                                    <div wire:loading>
+                                                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                                    </div>
+                                                                    Enregistrer</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                 </div>
                                                 <!-- /.card-body -->
                                             </div>
@@ -81,257 +81,175 @@
 
                         </div>
                     </div>
-                  <br/>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <div class="card">
+                <div class="card-header card-poste">
+                    <a href="#" data-toggle="modal" data-target="#addarrivage" class="float-right"
+                       style="color: #f4cc3a; font-weight:bold"><i class="fas fa-plus-circle"></i> Ajouter Materiel</a>
+                </div>
+                <div class="card-body">
                     <table id="bps" class="table table-bordered table-striped">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Expediteur</th>
-                                <th>Date</th>
-                                <th>Observation</th>
-                                <th>Action</th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Designation</th>
+                            <th>Marque</th>
+                            <th>Modele</th>
+                            <th>N° Serie</th>
+                            <th>Code Bien</th>
+                            <th>Action</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            @if ($arrivages->count() > 0)
 
-                            @foreach ($arrivages as $arrivage)
-                                <tr>
-                                    <td>{{ $arrivage->id }} / {{substr(date("Y"),-2)}}</td>
-                                    <td>{{ $arrivage->Expediteur }}</td>
-                                    <td>{{ $arrivage->Date }}</td>
-                                    <td>{{ $arrivage->Obs }}</td>
-
-
-                                    <td style="text-align:center">
-                                        <a class="btn btn-sm btn-danger" aria-disabled="true"  wire:confirm="Are you sure you want to delete this client?"
-                                           wire:click.prevent="deletearrivage({{$arrivage->id}})"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            <div>
+                        @foreach($materiels as $m )
+                            <tr>
+                                <td></td>
+                                <td>{{ $m->Designation }}</td>
+                                <td>{{ $m->Num_s }}</td>
+                                <td>{{ $m->Marque_id }}</td>
+                                <td>{{ $m->Modele_id }}</td>
+                                <td>{{ $m->Code_b }}</td>
+                                <td>{{ $m->Quantity }}</td>
+                            </tr>
+                        @endforeach
 
 
-                            </div>
-
-                            @else
-                                <tr>
-                                    <td class="text-center" colspan="9">Aucun Arrivage </td>
-                                </tr>
-                            @endif
                         </tbody>
                     </table>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            {{ $arrivages->links() }}
-
-                        </div>
-
-                    </div>
-
                 </div>
 
-                <!-- /.card-body -->
+                </div>
+        </div>
+
+        <div wire:ignore.self class="modal fade" id="addarrivage">
+            <div class="modal-dialog modal-xl">+
+                <div class="modal-content">
+                    <div class="modal-header card-poste">
+                        <h4 class="modal-title">Ajouter Materiel</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form wire:submit.prevent="storeMaterielArrivage">
+                        <div class="modal-body">
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="denomination">Consommable :</label>
+                                                    <input type="checkbox" id="consommable" name="my-checkbox" data-bootstrap-switch>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="denomination">Designation</label>
+                                                    <input type="text" class="form-control" id="Designation"
+                                                           placeholder="Enter le Designation" wire:model="Designation">
+                                                    @error('Designation')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="Code_postale">Marque</label>
+                                                    <input type="text" class="form-control" id="Marque"
+                                                           placeholder="Enter la Marque" wire:model="Marque_id">
+                                                    @error('Marque_id')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="Code_postale">Modele</label>
+                                                    <input type="text" class="form-control" id="Modele"
+                                                           placeholder="Enter le Modele" wire:model="Modele">
+                                                    @error('Modele')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="Num_s">N° Serie</label>
+                                                    <input type="text" class="form-control" id="Num_s"
+                                                           wire:model="Num_s" placeholder="Enter le N° Serie">
+                                                    @error('Num_s')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="Num_s">Code Bien</label>
+                                                    <input type="text" class="form-control" id="Code_b"
+                                                           wire:model="Code_b" placeholder="Enter le code bien">
+                                                    @error('Code_b')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="ccp_bureau">Quantite</label>
+                                                    <input type="number" value="1" class="form-control" id="Quantity"
+                                                           wire:model="Quantity" placeholder="Enter Quantite">
+                                                    @error('Quantity')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">
+                                <div wire:loading >
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                </div>
+                                Enregistrer</button>
+                            <button type="submit" class="btn btn-outline-success">
+                                <div wire:loading>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                </div>
+                                Enregistrer et Quitter</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Quitter</button>
+
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
 <!-- end table bp -->
-<!-- start adding modal bp -->
-    <div wire:ignore.self class="modal fade" id="addarrivage">
-        <div class="modal-dialog modal-xl">+
-            <div class="modal-content">
-                <div class="modal-header card-poste">
-                    <h4 class="modal-title">Ajouter un Arrivage</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form wire:submit.prevent="storearrivage">
-                    <div class="modal-body">
 
-                        <div class="row">
-
-                            <div class="col-md-12">
-
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="Expediteur">Expediteur </label>
-                                                <select class="form-control" id="Expediteur" wire:model="Expediteur">
-                                                <option value="" selected>Enter Expediteur</option>
-                                                <option value="DIRECTION GENERALE">DIRECTION GENERALE</option>
-                                                <option value="MAGAZIN CENTRAL">MAGAZIN CENTRAL</option>
-                                                <option value="AUTRE">AUTRE</option>
-                                                </select>
-                                                @error('Expediteur')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="Date">Date</label>
-                                                <input type="date" class="form-control" id="Date"
-                                                    placeholder="Enter le Rib" wire:model="Date">
-                                                @error('Date')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <label for="Obs">Observation</label>
-                                                <textarea id="Obs" wire:model="Obs" class="form-control" rows="3" placeholder="Enter Observation"></textarea>
-                                                @error('Obs')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- /.card-body -->
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn btn-success">
-                            <div wire:loading>
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                            </div>
-                            Enregistrer</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-    <!-- ending adding modal bp -->
 
 <!-- start editing modal bp -->
-<div wire:ignore.self class="modal fade" id="editclient">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header card-poste">
-                <h4 class="modal-title">Modifier client</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form wire:submit.prevent="editclientdata">
-                <div class="modal-body">
 
-                    <div class="row">
-
-                        <div class="col-md-12">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="denomination">Denomination</label>
-                                            <input type="text" class="form-control" id="denomination"
-                                                   placeholder="Enter nom de client" wire:model="Denomination">
-                                            @error('Denomination')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="Activite">Activite </label>
-                                            <select class="form-control" id="Activite" wire:model="Activite">
-                                                <option value="" selected>Enter la Activite</option>
-                                                <option value="PHARMACIE">PHARMACIE</option>
-                                                <option value="COMMERCANT">COMMERCANT</option>
-                                                <option value="PAPETERIE">PAPETERIE</option>
-                                                <option value="ASSURANCE">ASSURANCE</option>
-                                                <option value="CLINIQUE">CLINIQUE</option>
-                                                <option value="HOTELERIE">HOTELERIE</option>
-                                            </select>
-                                            @error('Activite')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="Code_postale">Rib</label>
-                                            <input type="text" class="form-control" id="Rib"
-                                                   placeholder="Enter le Rib" wire:model="Rib">
-                                            @error('Rib')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="id_m">Telephone</label>
-                                            <input type="text" class="form-control" id="Telephone"
-                                                   wire:model="Telephone" placeholder="Enter Telephone">
-                                            @error('Telephone')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="ccp_bureau">Address</label>
-                                            <input type="text" class="form-control" id="Address"
-                                                   wire:model="Address" placeholder="Enter l'address">
-                                            @error('Address')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="id_t">Commune</label>
-                                            <input type="text" class="form-control" id="Commune"
-                                                   wire:model="Commune" placeholder="Enter Commune">
-                                            @error('Commune')
-                                            <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- /.card-body -->
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-between">
-
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-success">
-                        <div wire:loading>
-                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        </div>
-                        Enregistrer</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-<!-- ending adding modal bp -->
 </div>
 @script
 <script>
     $(function() {
+        $("input[data-bootstrap-switch]").each(function(){
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        })
+
         $('.select2').select2()
         $('.select2bs4').select2({
             theme: 'bootstrap4'
