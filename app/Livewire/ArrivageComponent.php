@@ -48,7 +48,7 @@ class ArrivageComponent extends Component
 
         $this->resetInput();
   //$this->dispatch('addarrivage');
-    $this->redirectRoute('arr',['id'=>1]);
+    $this->redirectRoute('arr');
 
     }
  public function storeMaterielArrivage()

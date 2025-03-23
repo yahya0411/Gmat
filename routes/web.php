@@ -37,7 +37,7 @@ Route::get('sntf',\App\Livewire\SntfComponent::class);
 Route::get('arrivage',ArrivageComponent::class);
 Route::get('materiel',  MaterielComponent::class);
 
-Route::get('/',function() {
+Route::get('arr',function() {
 
     return view('load');
 
